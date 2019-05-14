@@ -49,6 +49,7 @@ public class Simulation_2 extends PApplet {
 	public void setup() {
 		lists = new LinkedList<Point>();
 		cluster_NUM = 0;
+		cluster[cluster_NUM] = new LinkedList<Sensor>();
 		allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
 		//cluster = new LinkedList<Sensor>();
 //	addPoint(50);
@@ -74,13 +75,17 @@ public class Simulation_2 extends PApplet {
 		for (int i = 0; i < lists.size(); i++) {
 			ellipse(lists.get(i).x, lists.get(i).y, 5, 5);
 		}
-		// if(cluster.size()!=0){
-		// 	fill(255,0,0);
-		// 	noStroke();
-		// 	for (int i = 0; i < lists.size(); i++) {
-		// 		ellipse(cluster.get(i).location.x, cluster.get(i).location.y, 30,30 );
-		// 	}
-		// }
+		if (cluster.length > 0){
+			for (int i = 0;i < cluster_NUM;i++){
+			 if(cluster[i].size()!=0){
+				fill((float)(255*Math.random()),(float)(255*Math.random()),(float)(255*Math.random()));
+				noStroke();
+				for (int j = 0; j < cluster[i].size(); j++) {
+						ellipse(cluster[i].get(j).location.x, cluster[i].get(j).location.y, 5,5 );
+				}
+			 }
+			}
+		}
 		stroke(0);
 		fill(0);
 		textSize(12);
