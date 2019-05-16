@@ -40,7 +40,7 @@ public class Simulation_2 extends PApplet {
 	int cluster_NUM  ;
 	Sensor[][] allSensor = new Sensor[1000][];
 	int allSensor_level = 0;
-
+	circle[] cluster_circle = new circle[1000];
 
 	public void settings() {
 		size(1500, 1500);
@@ -76,14 +76,23 @@ public class Simulation_2 extends PApplet {
 			ellipse(lists.get(i).x, lists.get(i).y, 5, 5);
 		}
 		if (cluster.length > 0){
+//			for (int i = 0;i < cluster_NUM;i++){
+//			 if(cluster[i].size()!=0){
+//
+//
+//				fill((float)(255*Math.random()),(float)(255*Math.random()),(float)(255*Math.random()));
+//				noStroke();
+//				for (int j = 0; j < cluster[i].size(); j++) {
+//						ellipse(cluster[i].get(j).location.x, cluster[i].get(j).location.y, 5,5 );
+//				}
+//			 }
+//			}
 			for (int i = 0;i < cluster_NUM;i++){
-			 if(cluster[i].size()!=0){
-				fill((float)(255*Math.random()),(float)(255*Math.random()),(float)(255*Math.random()));
-				noStroke();
-				for (int j = 0; j < cluster[i].size(); j++) {
-						ellipse(cluster[i].get(j).location.x, cluster[i].get(j).location.y, 5,5 );
-				}
-			 }
+			cluster_circle[i] = new circle();
+			cluster_circle[i] = WsnFunction.min_center(cluster[i]);
+			noFill();
+			ellipse(cluster_circle[i].center.x,cluster_circle[i].center.y,2*cluster_circle[i].r,2*cluster_circle[i].r);
+			println(cluster_circle[i].r);
 			}
 		}
 		stroke(0);

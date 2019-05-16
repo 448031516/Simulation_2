@@ -272,7 +272,71 @@ public class WsnFunction {
         return centre;	
     }
 
+    //求线段交点
+    public  static Point intersection(Point u1, Point u2, Point v1, Point v2)
+    {
+        Point ans = u1;
+        double t = ((u1.x - v1.x) * (v1.y - v2.y) - (u1.y - v1.y) * (v1.x - v2.x)) /
+                ((u1.x - u2.x) * (v1.y - v2.y) - (u1.y - u2.y) * (v1.x - v2.x));
+        ans.x += (u2.x - u1.x) * t;
+        ans.y += (u2.y - u1.y) * t;
+        return ans;
+    }
 
+
+    //计算三角形外接圆圆心
+    public  static Point circumcenter(Point a, Point b, Point c)
+    {
+        Point ua = new Point(), ub= new Point(), va= new Point(), vb= new Point();
+        ua.x = ( a.x + b.x ) / 2;
+        ua.y = ( a.y + b.y ) / 2;
+        ub.x = ua.x - a.y + b.y;//根据 垂直判断，两线段点积为0
+        ub.y = ua.y + a.x - b.x;
+        va.x = ( a.x + c.x ) / 2;
+        va.y = ( a.y + c.y ) / 2;
+        vb.x = va.x - a.y + c.y;
+        vb.y = va.y + a.x - c.x;
+        return intersection(ua, ub, va, vb);
+    }
+
+    public  static circle min_center(LinkedList<Sensor> cluster)
+    {
+        double eps = 1e-6;
+        int i, j, k;
+
+        circle o = new circle();
+        o.center = cluster.get(0).location;
+        for( i = 1 ; i < cluster.size() ; i++)//准备加入的点
+        {
+            if( Point.getDistance(cluster.get(i).location, o.center) - o.r > eps)//如果第i点在 i-1前最小圆外面
+            {
+                o.center = cluster.get(i).location; //另定圆心
+                o.r = 0;        //另定半径
+
+
+                for( j = 0 ; j < i; j++)//循环再确定半径
+                {
+                    if( Point.getDistance(cluster.get(j).location, o.center) - o.r > eps)
+                    {
+                        o.center.x = (cluster.get(i).location.x + cluster.get(j).location.x) / 2;
+                        o.center.y = (cluster.get(i).location.y + cluster.get(j).location.y) / 2;
+
+                        o.r = Point.getDistance( o.center, cluster.get(j).location);
+
+                        for( k = 0 ; k < j; k++)
+                        {
+                            if( Point.getDistance(o.center, cluster.get(k).location) - o.r > eps)//如果j前面有点不符和 i与j确定的圆，则更新
+                            {
+                                o.center = circumcenter(cluster.get(i).location, cluster.get(j).location, cluster.get(k).location);
+                                o.r = Point.getDistance(o.center, cluster.get(k).location);
+                            }
+                        }//循环不超过3层，因为一个圆最多3个点可以确定
+                    }
+                }
+            }
+        }
+        return o;
+    }
 
 
 
