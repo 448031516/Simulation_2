@@ -23,11 +23,7 @@ public class Simulation_2 extends PApplet {
 	//多跳阈值
 	float THR_erRateEFF = 0.1f;
 
-	/**
-	 * GeneticVisual
-	 *
-	 * @author: onlylemi
-	 */
+
 
 
 	Point[] points;
@@ -52,7 +48,7 @@ public class Simulation_2 extends PApplet {
 		cluster[cluster_NUM] = new LinkedList<Sensor>();
 		allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
 		//cluster = new LinkedList<Sensor>();
-//	addPoint(50);
+        //	addPoint(50);
 
 
 		cp5 = new ControlP5(this);
@@ -76,24 +72,24 @@ public class Simulation_2 extends PApplet {
 			ellipse(lists.get(i).x, lists.get(i).y, 5, 5);
 		}
 		if (cluster.length > 0){
-//			for (int i = 0;i < cluster_NUM;i++){
-//			 if(cluster[i].size()!=0){
-//
-//
-//				fill((float)(255*Math.random()),(float)(255*Math.random()),(float)(255*Math.random()));
-//				noStroke();
-//				for (int j = 0; j < cluster[i].size(); j++) {
-//						ellipse(cluster[i].get(j).location.x, cluster[i].get(j).location.y, 5,5 );
-//				}
-//			 }
-//			}
 			for (int i = 0;i < cluster_NUM;i++){
-			cluster_circle[i] = new circle();
-			cluster_circle[i] = WsnFunction.min_center(cluster[i]);
-			noFill();
-			ellipse(cluster_circle[i].center.x,cluster_circle[i].center.y,2*cluster_circle[i].r,2*cluster_circle[i].r);
-			println(cluster_circle[i].r);
+			 if(cluster[i].size()!=0){
+
+
+				fill((float)(255*Math.random()),(float)(255*Math.random()),(float)(255*Math.random()));
+				noStroke();
+				for (int j = 0; j < cluster[i].size(); j++) {
+						ellipse(cluster[i].get(j).location.x, cluster[i].get(j).location.y, 5,5 );
+				}
+			 }
 			}
+//            if(cluster[0].size()!=0){
+//			//cluster_circle[i] = new circle();
+//			cluster_circle[0] = WsnFunction.min_center(cluster[0]);
+//			noFill();
+//			ellipse(cluster_circle[0].center.x,cluster_circle[0].center.y,2*cluster_circle[0].r,2*cluster_circle[0].r);
+//			println(cluster_circle[0].r);
+//			}
 		}
 		stroke(0);
 		fill(0);
@@ -112,7 +108,7 @@ public class Simulation_2 extends PApplet {
 
 	public void onFind() {
 
-		cluster[cluster_NUM] = new LinkedList<Sensor>();
+	    cluster[cluster_NUM] = new LinkedList<Sensor>();
 		cluster[cluster_NUM] = WsnFunction.findSensors(100, allSensor[allSensor_level]);
 		++allSensor_level;
 		allSensor[allSensor_level] = new Sensor[allSensor[allSensor_level-1].length - cluster[cluster_NUM].size()];
@@ -124,7 +120,10 @@ public class Simulation_2 extends PApplet {
 	}
 
 	public void onStop() {
-		running = false;
+        cluster_circle[0] = WsnFunction.min_center(cluster[0]);
+        noFill();
+        ellipse(cluster_circle[0].center.x,cluster_circle[0].center.y,2*cluster_circle[0].r,2*cluster_circle[0].r);
+        println(cluster_circle[0].r);
 	}
 
 	public void reStart() {

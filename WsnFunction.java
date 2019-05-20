@@ -272,31 +272,28 @@ public class WsnFunction {
         return centre;	
     }
 
-    //求线段交点
-    public  static Point intersection(Point u1, Point u2, Point v1, Point v2)
-    {
-        Point ans = u1;
-        double t = ((u1.x - v1.x) * (v1.y - v2.y) - (u1.y - v1.y) * (v1.x - v2.x)) /
-                ((u1.x - u2.x) * (v1.y - v2.y) - (u1.y - u2.y) * (v1.x - v2.x));
-        ans.x += (u2.x - u1.x) * t;
-        ans.y += (u2.y - u1.y) * t;
-        return ans;
-    }
+//    //求线段交点
+//    public  static Point intersection(Point u1, Point u2, Point v1, Point v2)
+//    {
+//        Point ans = u1;
+//        double t = ((u1.x - v1.x) * (v1.y - v2.y) - (u1.y - v1.y) * (v1.x - v2.x)) /
+//                ((u1.x - u2.x) * (v1.y - v2.y) - (u1.y - u2.y) * (v1.x - v2.x));
+//        ans.x += (u2.x - u1.x) * t;
+//        ans.y += (u2.y - u1.y) * t;
+//        return ans;
+//    }
 
 
     //计算三角形外接圆圆心
     public  static Point circumcenter(Point a, Point b, Point c)
     {
-        Point ua = new Point(), ub= new Point(), va= new Point(), vb= new Point();
-        ua.x = ( a.x + b.x ) / 2;
-        ua.y = ( a.y + b.y ) / 2;
-        ub.x = ua.x - a.y + b.y;//根据 垂直判断，两线段点积为0
-        ub.y = ua.y + a.x - b.x;
-        va.x = ( a.x + c.x ) / 2;
-        va.y = ( a.y + c.y ) / 2;
-        vb.x = va.x - a.y + c.y;
-        vb.y = va.y + a.x - c.x;
-        return intersection(ua, ub, va, vb);
+        Point ret = new Point();
+        double a1=b.x-a.x,b1=b.y-a.y,c1=(a1*a1+b1*b1)/2;
+        double a2=c.x-a.x,b2=c.y-a.y,c2=(a2*a2+b2*b2)/2;
+        double d=a1*b2-a2*b1;
+        ret.x= (float)(a.x+(c1*b2-c2*b1)/d);
+        ret.y= (float)(a.y+(a1*c2-a2*c1)/d);
+        return ret;
     }
 
     public  static circle min_center(LinkedList<Sensor> cluster)
@@ -328,7 +325,7 @@ public class WsnFunction {
                             if( Point.getDistance(o.center, cluster.get(k).location) - o.r > eps)//如果j前面有点不符和 i与j确定的圆，则更新
                             {
                                 o.center = circumcenter(cluster.get(i).location, cluster.get(j).location, cluster.get(k).location);
-                                o.r = Point.getDistance(o.center, cluster.get(k).location);
+                                o.r = Point.getDistance(o.center, cluster.get(i).location);
                             }
                         }//循环不超过3层，因为一个圆最多3个点可以确定
                     }
