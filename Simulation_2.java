@@ -13,7 +13,7 @@ public class Simulation_2 extends PApplet {
 
 	float networkSize = 1000;
 	//传感器节点个数
-	int nodenum = 100;
+	int nodenum = 1500;
 	//系统当前时间初始为0s
 	int systemTime = 0;
 	//能量消耗率最小值
@@ -32,12 +32,13 @@ public class Simulation_2 extends PApplet {
 	boolean running = false;
 
 	LinkedList<Point> lists;
-	LinkedList<Point> lists_test = new LinkedList<Point>();
+	LinkedList<Point>[] cluster_point = new LinkedList[100];
 	LinkedList<Sensor>[] cluster = new LinkedList[1000];
 	int cluster_NUM  ;
 	Sensor[][] allSensor = new Sensor[1000][];
 	int allSensor_level = 0;
-	LinkedList<Point>[] cluster_circle = new LinkedList[100] ;
+	LinkedList<Point>[] cluster_edge = new LinkedList[100] ;
+	int cluster_Point_NUM ;
 
 	public void settings() {
 		size(1500, 1500);
@@ -46,16 +47,18 @@ public class Simulation_2 extends PApplet {
 	public void setup() {
 		lists = new LinkedList<Point>();
 		cluster_NUM = 0;
+		cluster_Point_NUM=0;
 		cluster[cluster_NUM] = new LinkedList<Sensor>();
+		cluster_point[cluster_Point_NUM] = new LinkedList<Point>();
 		allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
-		cluster_circle[0] = new LinkedList<Point>();
+		cluster_edge[0] = new LinkedList<Point>();
 		//cluster = new LinkedList<Sensor>();
         //	addPoint(50);
 
 
 		cp5 = new ControlP5(this);
 		cp5.addButton("onAdd").setPosition(5, 100);
-		cp5.addButton("onFind").setPosition(5, 130);
+		cp5.addButton("onFind_cluster").setPosition(5, 130);
 		cp5.addButton("onStop").setPosition(5, 160);
 		cp5.addButton("reStart").setPosition(5, 190);
 		cp5.addButton("onClear").setPosition(5, 220);
@@ -87,20 +90,32 @@ public class Simulation_2 extends PApplet {
 			 }
 			}
 //            if(cluster[0].size()!=0){
-//			//cluster_circle[i] = new circle();
-//			cluster_circle[0] = WsnFunction.min_center(cluster[0]);
+//			//cluster_edge[i] = new circle();
+//			cluster_edge[0] = WsnFunction.min_center(cluster[0]);
 //			noFill();
-//			ellipse(cluster_circle[0].center.x,cluster_circle[0].center.y,2*cluster_circle[0].r,2*cluster_circle[0].r);
-//			println(cluster_circle[0].r);
+//			ellipse(cluster_edge[0].center.x,cluster_edge[0].center.y,2*cluster_edge[0].r,2*cluster_edge[0].r);
+//			println(cluster_edge[0].r);
 //			}
 
 
 		}
-		if (cluster_circle[0].size() > 0) {
-			fill(0, 0, (float) (255));
-			noStroke();
-			for (int j = 0; j < cluster_circle[0].size(); j++) {
-				ellipse(cluster_circle[0].get(j).x, cluster_circle[0].get(j).y, 5, 5);
+		if (cluster_edge.length > 0) {
+			for (int i = 0;i < cluster_Point_NUM;i++) {
+				if (cluster_edge[i].size()!=0) {
+
+
+					fill(0, 0, (float) (255));
+					noStroke();
+					for (int j = 0; j < cluster_edge[i].size(); j++) {
+						ellipse(cluster_edge[i].get(j).x, cluster_edge[i].get(j).y, 5, 5);
+					}
+
+					stroke(0, 0, 255);     //线条颜色 rgb
+					strokeWeight(2);   //线条宽度
+					for (int j = 0; j < cluster_edge[i].size()-1; j++){
+						line(cluster_edge[i].get(j).x,cluster_edge[i].get(j).y,cluster_edge[i].get(j+1).x,cluster_edge[i].get(j+1).y);
+					}
+				}
 			}
 		}
 		stroke(0);
@@ -118,7 +133,7 @@ public class Simulation_2 extends PApplet {
 		}
 	}
 
-	public void onFind() {
+	public void onFind_cluster() {
 
 	    //cluster[cluster_NUM] = new LinkedList<Sensor>();
 		cluster[cluster_NUM] = WsnFunction.findSensors(100, allSensor[allSensor_level]);
@@ -132,14 +147,16 @@ public class Simulation_2 extends PApplet {
 	}
 
 	public void onStop() {
-//        cluster_circle[0] = WsnFunction.min_center(cluster[0]);
+//        cluster_edge[0] = WsnFunction.min_center(cluster[0]);
 //        noFill();
-//        ellipse(cluster_circle[0].center.x,cluster_circle[0].center.y,2*cluster_circle[0].r,2*cluster_circle[0].r);
-//        println(cluster_circle[0].r);
-		for (int i = 0;i < cluster[0].size();i++){
-			lists_test.add(cluster[0].get(i).location);
+//        ellipse(cluster_edge[0].center.x,cluster_edge[0].center.y,2*cluster_edge[0].r,2*cluster_edge[0].r);
+//        println(cluster_edge[0].r);
+		cluster_point[cluster_Point_NUM] = new LinkedList<Point>();
+		for (int i = 0;i < cluster[cluster_Point_NUM].size();i++){
+			cluster_point[cluster_Point_NUM].add(cluster[cluster_Point_NUM].get(i).location);
 		}
-		cluster_circle[0] =MinimumBoundingPolygon.findSmallestPolygon(lists_test);
+		cluster_edge[cluster_Point_NUM] = MinimumBoundingPolygon.findSmallestPolygon(cluster_point[cluster_Point_NUM]);
+		++cluster_Point_NUM;
 
 
 	}
