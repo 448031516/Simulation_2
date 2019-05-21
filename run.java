@@ -1,11 +1,10 @@
-
-
+import java.util.LinkedList;
 
 public class run {
 
     public static void main(String[] args) {
         //网络规模
-        float networkSize = 200;
+        float networkSize = 1000;
         //传感器节点个数
         int nodenum = 1500;
         //系统当前时间初始为0s
@@ -17,6 +16,32 @@ public class run {
         //多跳阈值
         float THR_erRateEFF = 0.1f;
 
+        LinkedList<Point> lists;
+        LinkedList<Sensor> cluster,cluster1;
+        int cluster_NUM;
+        Sensor[] allSensor;
+        int allSensor_level = 0;
+        circle cluster_circle, a;
+
+        lists = new LinkedList<Point>();
+
+        cluster = new LinkedList<Sensor>();
+        allSensor = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
+
+        cluster = WsnFunction.findSensors(100, allSensor);
+        cluster1 = WsnFunction.findSensors(100, allSensor);
+
+        cluster_circle = WsnFunction.min_center(cluster);
+        System.out.println(cluster_circle.r);
+
+        a = WsnFunction.min_center(cluster1);
+        System.out.println(a.r);
+    }
+
+
+
+}
+/*
 
         Sensor[] allSensor = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
 //        System.out.println("随机创建的节点信息如下");
@@ -116,7 +141,8 @@ public class run {
        // System.out.println(cluster.length);
     // 第i个簇中
 
-        /*
+        */
+/*
         *                                 确定多跳路径的算法：
         * 1.首先确定单个簇内的多跳路径，遍历簇内所有节点，区分被MC直接覆盖的节点集合A与未被MC覆盖的集合B。
         *
@@ -134,7 +160,8 @@ public class run {
         *
         * 6.根据以上算法遍历所有簇
         *
-        * */
+        * *//*
+
     for (int i=0;i < cluster.length;i++) {
 
 
@@ -227,6 +254,7 @@ public class run {
         }
         return dist;
     }
+*/
 
 //    private static float distance(com.onlylemi.genetictsp.Point p1, com.onlylemi.genetictsp.Point p2) {
 //        return (float) Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
@@ -234,4 +262,4 @@ public class run {
 
 
 
-}
+
