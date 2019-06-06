@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="节点分簇">
-      <change afterPath="$PROJECT_DIR$/DiscretePointUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MinimumBoundingPolygon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/Point.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulation_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/modules.xml" beforeDir="false" />
@@ -44,13 +41,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Simulation_2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="76" column="38" lean-forward="true" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="38" />
+            <state relative-caret-position="-312">
+              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#610#617#0" expanded="true" />
-                <element signature="e#778#779#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -59,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="646">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -68,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WsnFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1391">
+            <state relative-caret-position="6327">
               <caret line="334" column="17" selection-start-line="334" selection-start-column="17" selection-end-line="334" selection-end-column="17" />
             </state>
           </provider>
@@ -79,18 +73,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
               <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-              <folding>
-                <element signature="e#2012#2013#0" expanded="true" />
-                <element signature="e#2036#2037#0" expanded="true" />
-                <element signature="e#2070#2071#0" expanded="true" />
-                <element signature="e#2096#2097#0" expanded="true" />
-                <element signature="e#2124#2125#0" expanded="true" />
-                <element signature="e#2148#2149#0" expanded="true" />
-                <element signature="e#2182#2183#0" expanded="true" />
-                <element signature="e#2208#2209#0" expanded="true" />
-                <element signature="e#2254#2255#0" expanded="true" />
-                <element signature="e#2301#2302#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -99,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/DiscretePointUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="28" lean-forward="true" selection-end-column="28" />
+              <caret column="28" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -107,7 +89,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MinimumBoundingPolygon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
+            <state relative-caret-position="76">
               <caret line="5" column="55" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -145,10 +127,10 @@
         <option value="$PROJECT_DIR$/circle.java" />
         <option value="$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
         <option value="$PROJECT_DIR$/WsnFunction.java" />
-        <option value="$PROJECT_DIR$/run.java" />
         <option value="$PROJECT_DIR$/DiscretePointUtil.java" />
         <option value="$PROJECT_DIR$/MinimumBoundingPolygon.java" />
         <option value="$PROJECT_DIR$/Point.java" />
+        <option value="$PROJECT_DIR$/run.java" />
         <option value="$PROJECT_DIR$/Simulation_2.java" />
       </list>
     </option>
@@ -160,10 +142,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1208" />
-    <option name="width" value="1294" />
-    <option name="height" value="1407" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="200" />
+    <option name="y" value="81" />
+    <option name="width" value="1149" />
+    <option name="height" value="795" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -272,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558321527531</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="确定簇边界节点">
+      <created>1558415752041</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1558415752041</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -285,10 +275,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1208" y="0" width="1294" height="1407" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49936947" visible="true" weight="0.15883306" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49936947" visible="true" weight="0.14371258" />
       <window_info id="Structure" order="1" sideWeight="0.5006305" side_tool="true" weight="0.09031936" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
@@ -296,8 +285,8 @@
       <window_info id="Favorites" order="5" sideWeight="0.5006305" side_tool="true" weight="0.09031936" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.499501" visible="true" weight="0.21759623" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3863179" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.499501" visible="true" weight="0.30482897" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28370222" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32967034" />
@@ -316,9 +305,26 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial construction simulation" />
     <MESSAGE value="节点分簇" />
-    <option name="LAST_COMMIT_MESSAGE" value="节点分簇" />
+    <MESSAGE value="确定簇边界节点" />
+    <option name="LAST_COMMIT_MESSAGE" value="确定簇边界节点" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/run.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/run.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="cluster" />
@@ -436,24 +442,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Simulation_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-312">
+          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/run.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="646">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circle.java">
+    <entry file="file://$PROJECT_DIR$/WsnFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DiscretePointUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" lean-forward="true" selection-end-column="28" />
+        <state relative-caret-position="6327">
+          <caret line="334" column="17" selection-start-line="334" selection-start-column="17" selection-end-line="334" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -461,31 +470,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="e#2012#2013#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2070#2071#0" expanded="true" />
-            <element signature="e#2096#2097#0" expanded="true" />
-            <element signature="e#2124#2125#0" expanded="true" />
-            <element signature="e#2148#2149#0" expanded="true" />
-            <element signature="e#2182#2183#0" expanded="true" />
-            <element signature="e#2208#2209#0" expanded="true" />
-            <element signature="e#2254#2255#0" expanded="true" />
-            <element signature="e#2301#2302#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WsnFunction.java">
+    <entry file="file://$PROJECT_DIR$/DiscretePointUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1391">
-          <caret line="334" column="17" selection-start-line="334" selection-start-column="17" selection-end-line="334" selection-end-column="17" />
+        <state>
+          <caret column="28" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MinimumBoundingPolygon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="76">
           <caret line="5" column="55" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -493,16 +490,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Simulation_2.java">
+    <entry file="file://$PROJECT_DIR$/circle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="76" column="38" lean-forward="true" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#610#617#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="95">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="19" />
         </state>
       </provider>
     </entry>

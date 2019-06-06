@@ -4,9 +4,9 @@ public class run {
 
     public static void main(String[] args) {
         //网络规模
-        float networkSize = 1000;
+        float networkSize = 150;
         //传感器节点个数
-        int nodenum = 1500;
+        int nodenum = 100;
         //系统当前时间初始为0s
         int systemTime = 0;
         //能量消耗率最小值
@@ -17,7 +17,7 @@ public class run {
         float THR_erRateEFF = 0.1f;
 
         LinkedList<Point> lists;
-        LinkedList<Sensor> cluster,cluster1;
+         final    LinkedList<Sensor> cluster,cluster1;
         int cluster_NUM;
         Sensor[] allSensor;
         int allSensor_level = 0;
@@ -25,11 +25,12 @@ public class run {
 
         lists = new LinkedList<Point>();
 
-        cluster = new LinkedList<Sensor>();
+//        cluster = new LinkedList<Sensor>();
+//        cluster1 = new LinkedList<Sensor>();
         allSensor = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
 
-        cluster = WsnFunction.findSensors(100, allSensor);
-        cluster1 = WsnFunction.findSensors(100, allSensor);
+        cluster = WsnFunction.findSensors(20, allSensor);
+        cluster1 = WsnFunction.findSensors(20, allSensor);
 
         cluster_circle = WsnFunction.min_center(cluster);
         System.out.println(cluster_circle.r);

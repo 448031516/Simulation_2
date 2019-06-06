@@ -11,9 +11,9 @@ public class Simulation_2 extends PApplet {
 		PApplet.runSketch(new String[]{"ProcessingTest"}, pt);
 	}
 
-	float networkSize = 1000;
+	float networkSize = 150;
 	//传感器节点个数
-	int nodenum = 1500;
+	int nodenum = 100;
 	//系统当前时间初始为0s
 	int systemTime = 0;
 	//能量消耗率最小值
@@ -33,12 +33,13 @@ public class Simulation_2 extends PApplet {
 
 	LinkedList<Point> lists;
 	LinkedList<Point>[] cluster_point = new LinkedList[100];
-	LinkedList<Sensor>[] cluster = new LinkedList[1000];
+	final LinkedList<Sensor>[] cluster = new LinkedList[1000];
 	int cluster_NUM  ;
 	Sensor[][] allSensor = new Sensor[1000][];
 	int allSensor_level = 0;
 	LinkedList<Point>[] cluster_edge = new LinkedList[100] ;
 	int cluster_Point_NUM ;
+	circle test;
 
 	public void settings() {
 		size(1500, 1500);
@@ -48,7 +49,7 @@ public class Simulation_2 extends PApplet {
 		lists = new LinkedList<Point>();
 		cluster_NUM = 0;
 		cluster_Point_NUM=0;
-		cluster[cluster_NUM] = new LinkedList<Sensor>();
+//		cluster[cluster_NUM] = new LinkedList<Sensor>();
 		cluster_point[cluster_Point_NUM] = new LinkedList<Point>();
 		allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
 		cluster_edge[0] = new LinkedList<Point>();
@@ -57,11 +58,11 @@ public class Simulation_2 extends PApplet {
 
 
 		cp5 = new ControlP5(this);
-		cp5.addButton("onAdd").setPosition(5, 100);
-		cp5.addButton("onFind_cluster").setPosition(5, 130);
-		cp5.addButton("onStop").setPosition(5, 160);
-		cp5.addButton("reStart").setPosition(5, 190);
-		cp5.addButton("onClear").setPosition(5, 220);
+		cp5.addButton("onAdd").setPosition(1000, 100);
+		cp5.addButton("onFind_cluster").setPosition(1000, 130);
+		cp5.addButton("edge").setPosition(1000, 160);
+		cp5.addButton("reStart").setPosition(1000, 190);
+		cp5.addButton("onClear").setPosition(1000, 220);
 	}
 
 	public void draw() {
@@ -87,7 +88,7 @@ public class Simulation_2 extends PApplet {
 						ellipse(cluster[i].get(j).location.x, cluster[i].get(j).location.y, 5,5 );
 				}
 
-			 }
+			  }
 			}
 //            if(cluster[0].size()!=0){
 //			//cluster_edge[i] = new circle();
@@ -112,8 +113,12 @@ public class Simulation_2 extends PApplet {
 
 					stroke(0, 0, 255);     //线条颜色 rgb
 					strokeWeight(2);   //线条宽度
-					for (int j = 0; j < cluster_edge[i].size()-1; j++){
-						line(cluster_edge[i].get(j).x,cluster_edge[i].get(j).y,cluster_edge[i].get(j+1).x,cluster_edge[i].get(j+1).y);
+					for (int j = 0; j <= cluster_edge[i].size()-1; j++){
+						if (j == cluster_edge[i].size()-1){
+							line(cluster_edge[i].get(j).x,cluster_edge[i].get(j).y,cluster_edge[i].get(0).x,cluster_edge[i].get(0).y);
+						}else {
+							line(cluster_edge[i].get(j).x,cluster_edge[i].get(j).y,cluster_edge[i].get(j+1).x,cluster_edge[i].get(j+1).y);
+						}
 					}
 				}
 			}
@@ -121,7 +126,7 @@ public class Simulation_2 extends PApplet {
 		stroke(0);
 		fill(0);
 		textSize(12);
-		text("point length: " + lists.size(), 5, 20);
+		text("point length: " + lists.size(), 1000, 20);
 
 	}
 
@@ -136,7 +141,7 @@ public class Simulation_2 extends PApplet {
 	public void onFind_cluster() {
 
 	    //cluster[cluster_NUM] = new LinkedList<Sensor>();
-		cluster[cluster_NUM] = WsnFunction.findSensors(100, allSensor[allSensor_level]);
+		cluster[cluster_NUM] = WsnFunction.findSensors(20, allSensor[allSensor_level]);
 		++allSensor_level;
 		allSensor[allSensor_level] = new Sensor[allSensor[allSensor_level-1].length - cluster[cluster_NUM].size()];
 		allSensor[allSensor_level] = WsnFunction.update_allSensors(cluster[cluster_NUM],allSensor[allSensor_level-1]);
@@ -146,7 +151,7 @@ public class Simulation_2 extends PApplet {
 		 ++cluster_NUM;
 	}
 
-	public void onStop() {
+	public void edge() {
 //        cluster_edge[0] = WsnFunction.min_center(cluster[0]);
 //        noFill();
 //        ellipse(cluster_edge[0].center.x,cluster_edge[0].center.y,2*cluster_edge[0].r,2*cluster_edge[0].r);
@@ -162,10 +167,10 @@ public class Simulation_2 extends PApplet {
 	}
 
 	public void reStart() {
-		if (points != null) {
-
-			running = true;
-		}
+		test = WsnFunction.min_center(cluster[0]);
+        noFill();
+        ellipse(test.center.x,test.center.y,2*test.r,test.r);
+        println(test.r);
 	}
 
 	public void onClear() {
