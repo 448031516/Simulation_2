@@ -31,6 +31,8 @@ public class Simulation_2 extends PApplet {
 
 	boolean running = false;
 
+	circle[] cluster_circle = new circle[100];
+	int cluster_circle_NUM;
 	LinkedList<Point> lists;
 	LinkedList<Point>[] cluster_point = new LinkedList[100];
 	final LinkedList<Sensor>[] cluster = new LinkedList[1000];
@@ -42,13 +44,14 @@ public class Simulation_2 extends PApplet {
 	circle test;
 
 	public void settings() {
-		size(1500, 1500);
+		size(1500, 1000);
 	}
 
 	public void setup() {
 		lists = new LinkedList<Point>();
 		cluster_NUM = 0;
 		cluster_Point_NUM=0;
+		cluster_circle_NUM = 0;
 //		cluster[cluster_NUM] = new LinkedList<Sensor>();
 		cluster_point[cluster_Point_NUM] = new LinkedList<Point>();
 		allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
@@ -61,7 +64,7 @@ public class Simulation_2 extends PApplet {
 		cp5.addButton("onAdd").setPosition(1000, 100);
 		cp5.addButton("onFind_cluster").setPosition(1000, 130);
 		cp5.addButton("edge").setPosition(1000, 160);
-		cp5.addButton("reStart").setPosition(1000, 190);
+		cp5.addButton("circle").setPosition(1000, 190);
 		cp5.addButton("onClear").setPosition(1000, 220);
 	}
 
@@ -123,6 +126,14 @@ public class Simulation_2 extends PApplet {
 				}
 			}
 		}
+		noFill();
+		if (cluster_circle.length > 0) {
+			for (int i = 0; i < cluster_circle.length; i++) {
+				if (cluster_circle[i] != null)
+				ellipse(cluster_circle[i].center.x, cluster_circle[i].center.y, 2 * cluster_circle[i].r, 2 * cluster_circle[i].r);
+			}
+		}
+
 		stroke(0);
 		fill(0);
 		textSize(12);
@@ -166,11 +177,9 @@ public class Simulation_2 extends PApplet {
 
 	}
 
-	public void reStart() {
-		test = WsnFunction.min_center(cluster[0]);
-        noFill();
-        ellipse(test.center.x,test.center.y,2*test.r,test.r);
-        println(test.r);
+	public void circle() {
+		cluster_circle[cluster_circle_NUM] = WsnFunction.find_cirle(cluster_edge[cluster_circle_NUM ]);
+		cluster_circle_NUM++;
 	}
 
 	public void onClear() {

@@ -335,7 +335,21 @@ public class WsnFunction {
         return o;
     }
 
-
+    //找出能包含凸多边形的圆
+    public static circle find_cirle(LinkedList<Point> cluster_edge) {
+            float   max = 0;
+            circle A = new circle();
+            for (int i=0;i < cluster_edge.size();i++){
+                for (int j = i+1; j < cluster_edge.size();j++){
+                    if (max < Point.getDistance(cluster_edge.get(i),cluster_edge.get(j))){
+                        max = Point.getDistance(cluster_edge.get(i),cluster_edge.get(j));
+                        A.center = new Point((cluster_edge.get(i).x+cluster_edge.get(j).x)/2,(cluster_edge.get(i).y+cluster_edge.get(j).y)/2);
+                        A.r = max/2 ;
+                    }
+                }
+            }
+            return A;
+    }
 
 
 
