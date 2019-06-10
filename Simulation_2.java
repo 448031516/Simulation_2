@@ -31,11 +31,11 @@ public class Simulation_2 extends PApplet {
 
 	boolean running = false;
 
-	circle[] cluster_circle = new circle[100];
+	circle[] cluster_circle = new circle[100];		//簇圆
 	int cluster_circle_NUM;
 	LinkedList<Point> lists;
-	LinkedList<Point>[] cluster_point = new LinkedList[100];
-	final LinkedList<Sensor>[] cluster = new LinkedList[1000];
+	LinkedList<Point>[] cluster_point = new LinkedList[100];		//簇，但将簇内Sensor转换成Point
+	final LinkedList<Sensor>[] cluster = new LinkedList[1000];		//簇，元素为Sensor
 	int cluster_NUM  ;
 	Sensor[][] allSensor = new Sensor[1000][];
 	int allSensor_level = 0;
