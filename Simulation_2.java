@@ -36,6 +36,7 @@ public class Simulation_2 extends PApplet {
 	LinkedList<Point> lists;
 	LinkedList<Point>[] cluster_point = new LinkedList[100];		//簇，但将簇内Sensor转换成Point
 	final LinkedList<Sensor>[] cluster = new LinkedList[1000];		//簇，元素为Sensor
+	LinkedList<Point> Centroid = new LinkedList<Point>();
 	int cluster_NUM  ;
 	Sensor[][] allSensor = new Sensor[1000][];
 	int allSensor_level = 0;
@@ -44,7 +45,7 @@ public class Simulation_2 extends PApplet {
 	circle test;
 
 	public void settings() {
-		size(1500, 1000);
+		size(800, 600);
 	}
 
 	public void setup() {
@@ -61,11 +62,11 @@ public class Simulation_2 extends PApplet {
 
 
 		cp5 = new ControlP5(this);
-		cp5.addButton("onAdd").setPosition(1000, 100);
-		cp5.addButton("onFind_cluster").setPosition(1000, 130);
-		cp5.addButton("edge").setPosition(1000, 160);
-		cp5.addButton("circle").setPosition(1000, 190);
-		cp5.addButton("onClear").setPosition(1000, 220);
+		cp5.addButton("onAdd").setPosition(500, 100);
+		cp5.addButton("onFind_cluster").setPosition(500, 130);
+		cp5.addButton("edge").setPosition(500, 160);
+		cp5.addButton("circle").setPosition(500, 190);
+		cp5.addButton("findCentroid").setPosition(500, 220);
 	}
 
 	public void draw() {
@@ -103,6 +104,16 @@ public class Simulation_2 extends PApplet {
 
 
 		}
+
+		fill((float)(120),(float)(255),(float)(200));
+		noStroke();
+		if (Centroid.size()!=0){
+			for (int j = 0; j < Centroid.size(); j++) {
+				ellipse(Centroid.get(j).x, Centroid.get(j).y, 5,5 );
+			}
+		}
+
+
 		if (cluster_edge.length > 0) {
 			for (int i = 0;i < cluster_Point_NUM;i++) {
 				if (cluster_edge[i].size()!=0) {
@@ -134,10 +145,10 @@ public class Simulation_2 extends PApplet {
 			}
 		}
 
-		stroke(0);
-		fill(0);
-		textSize(12);
-		text("point length: " + lists.size(), 1000, 20);
+//		stroke(0);
+//		fill(0);
+//		textSize(12);
+//		text("point length: " + lists.size(), 500, 20);
 
 	}
 
@@ -180,6 +191,19 @@ public class Simulation_2 extends PApplet {
 	public void circle() {
 		cluster_circle[cluster_circle_NUM] = WsnFunction.find_cirle(cluster_edge[cluster_circle_NUM ]);
 		cluster_circle_NUM++;
+	}
+
+	public void findCentroid(){
+		int i = 0, x = 0,y = 0;
+		while (i < cluster_point[cluster_Point_NUM-1].size()){
+			x+=cluster_point[cluster_Point_NUM-1].get(i).x;
+			y+=cluster_point[cluster_Point_NUM-1].get(i).y;
+			i++;
+		}
+		Point a = new Point();
+		a.x = x/cluster_point[cluster_Point_NUM-1].size();
+		a.y = y/cluster_point[cluster_Point_NUM-1].size();
+		Centroid.add(a);
 	}
 
 	public void onClear() {

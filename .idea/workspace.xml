@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="节点分簇">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Charging.java" beforeDir="false" afterPath="$PROJECT_DIR$/Charging.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulation_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/vcs.xml" beforeDir="false" />
@@ -11,20 +12,13 @@
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.vscode/tasks.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/GeneticP5Visaul.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/MCV.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/MCV.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/META-INF/Simulation_2.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/run.class" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,102 +31,6 @@
   <component name="FavoritesManager">
     <favorites_list name="Simulation_2" />
   </component>
-  <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.40087336">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Simulation_2.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1805">
-                  <caret line="100" column="39" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Charging.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="18" selection-start-line="18" selection-end-line="18" />
-                  <folding>
-                    <element signature="e#140#141#0" expanded="true" />
-                    <element signature="e#181#182#0" expanded="true" />
-                    <element signature="e#228#229#0" expanded="true" />
-                    <element signature="e#264#265#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/WsnFunction.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="570">
-                  <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/MCV.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="19">
-                  <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Sensor.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="494">
-                  <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="37" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Point.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="171">
-                  <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/circle.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="95">
-                  <caret line="5" column="19" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="19" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Simulation_2.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1273">
-                  <caret line="55" column="67" lean-forward="true" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -143,23 +41,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Sensor.java" />
-        <option value="$PROJECT_DIR$/GeneticP5Visaul.java" />
-        <option value="$PROJECT_DIR$/circle.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
-        <option value="$PROJECT_DIR$/DiscretePointUtil.java" />
-        <option value="$PROJECT_DIR$/MinimumBoundingPolygon.java" />
-        <option value="$PROJECT_DIR$/Point.java" />
-        <option value="$PROJECT_DIR$/run.java" />
-        <option value="$PROJECT_DIR$/WsnFunction.java" />
-        <option value="$PROJECT_DIR$/Simulation_2.java" />
-        <option value="$PROJECT_DIR$/Charging.java" />
-      </list>
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -167,46 +48,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="306" />
-    <option name="y" value="240" />
-    <option name="width" value="2688" />
-    <option name="height" value="1725" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Simulation_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Simulation_2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Simulation_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Simulation_2" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Simulation_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Simulation_2" type="462c0819:PsiDirectoryNode" />
-              <item name=".vscode" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
+  <component name="ProjectId" id="1OShjqL8JdNk341c3nCtY19Z35x" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="C:/processing-3.5.3/core/library/core.jar!/" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
@@ -293,20 +139,13 @@
       <updated>1558415752041</updated>
     </task>
     <task id="LOCAL-00005" summary="节点分簇">
-      <created>1559971694050</created>
+      <created>1559788926087</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1559971694050</updated>
+      <updated>1559788926087</updated>
     </task>
-    <task id="LOCAL-00006" summary="节点分簇">
-      <created>1560179925410</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1560179925410</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -318,33 +157,18 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49936947" visible="true" weight="0.09137862" />
-      <window_info id="Structure" order="1" sideWeight="0.5006305" side_tool="true" weight="0.09031936" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Learn" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.5006305" side_tool="true" weight="0.09031936" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.499501" weight="0.1909587" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.28370222" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32967034" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32967034" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.500499" side_tool="true" weight="0.18812877" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32967034" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3279678" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-    </layout>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial construction simulation" />
@@ -358,130 +182,6 @@
         <watch expression="cluster" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="jar:///Applications/Processing.app/Contents/Java/core/library/core.jar!/processing/event/MouseEvent.class" />
-    <entry file="jar:///Applications/Processing.app/Contents/Java/core/library/core.jar!/processing/core/PApplet.class" />
-    <entry file="jar:///Applications/Processing.app/Contents/Java/core/library/core.jar!/processing/event/Event.class" />
-    <entry file="jar://$PROJECT_DIR$/../controlP5-2.2.5/controlP5/library/controlP5.jar!/controlP5/ControlWindow.class" />
-    <entry file="jar://$PROJECT_DIR$/../controlP5-2.2.5/controlP5/library/controlP5.jar!/controlP5/ControllerGroup.class" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/Object.java" />
-    <entry file="jar://$PROJECT_DIR$/../controlP5-2.2.5/controlP5/library/controlP5.jar!/controlP5/Button.class" />
-    <entry file="jar://$PROJECT_DIR$/../controlP5-2.2.5/controlP5/library/controlP5.jar!/controlP5/Controller.class" />
-    <entry file="jar://$PROJECT_DIR$/../controlP5-2.2.5/controlP5/library/controlP5.jar!/controlP5/ControlBroadcaster.class" />
-    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8151" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/processing-3.5.3/core/library/core.jar!/processing/core/PApplet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="6729" selection-start-line="6729" selection-end-line="6729" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/awt/EventDispatchThread.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/sun/java2d/d3d/D3DRenderQueue.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/ref/Reference.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/ref/ReferenceQueue.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Object.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/sun/awt/windows/WToolkit.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/concurrent/locks/AbstractQueuedSynchronizer.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/concurrent/locks/LockSupport.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/jdk/internal/misc/Unsafe.java" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
-    <entry file="file://$PROJECT_DIR$/run.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MinimumBoundingPolygon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="55" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DiscretePointUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WsnFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/circle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Simulation_2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1805">
-          <caret line="100" column="39" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MCV.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sensor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Charging.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#181#182#0" expanded="true" />
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -522,7 +222,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>11</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -539,6 +239,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -558,6 +259,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>core</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
