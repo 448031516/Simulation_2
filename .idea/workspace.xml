@@ -2,20 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="节点分簇">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulation_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WsnFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/WsnFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/.vscode/tasks.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GeneticP5Visaul/GeneticP5Visaul.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/META-INF/Simulation_2.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/run.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/run.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +46,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -53,7 +67,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -67,7 +81,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Simulation_2">
+  <component name="RunManager" selected="Application.run">
     <configuration name="GeneticP5Visaul" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GeneticP5Visaul" />
       <module name="Simulation_2" />
@@ -91,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Simulation_2" />
         <item itemvalue="Application.run" />
+        <item itemvalue="Application.Simulation_2" />
         <item itemvalue="Application.GeneticP5Visaul" />
       </list>
     </recent_temporary>
@@ -182,109 +196,49 @@
     <option name="LAST_COMMIT_MESSAGE" value="节点分簇" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/run.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/run.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WsnFunction.java</url>
+          <line>236</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WsnFunction.java</url>
+          <line>239</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WsnFunction.java</url>
+          <line>223</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WsnFunction.java</url>
+          <line>244</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WsnFunction.java</url>
+          <line>243</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="cluster" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Simulation_2</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>core</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

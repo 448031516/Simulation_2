@@ -172,62 +172,78 @@ public class WsnFunction {
 
     //找出能被半径为r的圆覆盖最多节点的区域，并输出这个区域的节点
     public static LinkedList<Sensor> findSensors(float r, Sensor[] allSensors){
-        int n = allSensors.length;
-        int ans = 1;
-        LinkedList<Sensor>[][] cloveredSensor = new LinkedList[n][n];
+        if (allSensors.length > 1){
+            int n = allSensors.length;
+            int ans = 1;
+            int s = 0;
+            LinkedList<Sensor>[][] cloveredSensor = new LinkedList[n][n];
+            LinkedList<Sensor> max_cloveredSensor = new LinkedList<Sensor>() ;
+            for(int i = 0;i < n;i++){
+
+                for(int j = i + 1;j < n;j++){
+
+                    if(Sensor.getDistance(allSensors[i],allSensors[j]) <= 2*r) s++;
+                }
+                if (s!=0){
+                    for(int j = i + 1;j < n;j++){
+                        if(Sensor.getDistance(allSensors[i],allSensors[j]) > 2*r) continue;		//i、j不相交，直接跳过
+                        int tmpans = 0;
+                        Sensor centre = find_centre(allSensors[i], allSensors[j],r);		//找出以i、j单位圆的交点之一centre
+                        int k = 0;
+                        cloveredSensor[i][j] = new LinkedList<Sensor>();
+                        for(;k < n;k++){		//枚举其余所有点，记录离centre距离小于1的点的数量
+
+                            //if(tmpans + n - k <= ans) break;
+                            float tmp = Sensor.getDistance(centre, allSensors[k]);
+                            //if(tmp < 1.0 || fabs(tmp - 1.0) < eps) tmpans++;
+                            if(tmp <= r+0.000001) {
+                                tmpans++;
+                                cloveredSensor[i][j].add(allSensors[k]);
+                            }//想法：在此处添加一个Point数组记录被圈住的点
+                        }
+                        if(ans < tmpans) {
+                            ans = tmpans ;
+                        }//想法：在此处挑出圈住最多点的那个Point数组
+                    }
+                }
+            }
+            if (s!=0) {
+                int maxlength = 0, temp_i = 0, temp_j = 0;
+                for (int i = 0; i < n; i++) {
+                    for (int j = i + 1; j < n; j++) {
+                        if (Sensor.getDistance(allSensors[i], allSensors[j]) > 2 * r) continue;
+
+                        if (maxlength <= cloveredSensor[i][j].size()) {
+                            maxlength = cloveredSensor[i][j].size();
+                            temp_i = i;
+                            temp_j = j;
+                        }
+                    }
+                }
+
+                max_cloveredSensor = cloveredSensor[temp_i][temp_j];
+            }
+    //        for (int i=0;i < max_cloveredSensor.size();i++){
+    //            for(int j=0;j < allSensors.length; j++){
+    //                if(max_cloveredSensor.get(i) == allSensors[j]){
+    //                    for (int k=j;k < allSensors.length-1;k++){
+    //                        allSensors[k]=allSensors[k+1];
+    //                    }
+    //                }
+    //                break;
+    //            }
+    //        }
+            if (max_cloveredSensor.size()!=0){
+                return max_cloveredSensor;
+            }else {
+                max_cloveredSensor.add(allSensors[0]);
+                return max_cloveredSensor;
+            }
+        }
         LinkedList<Sensor> max_cloveredSensor = new LinkedList<Sensor>() ;
-        for(int i = 0;i < n;i++){
-
-            for(int j = i + 1;j < n;j++){
-                int k = 0;
-                if(Sensor.getDistance(allSensors[i],allSensors[j]) <= 2*r) k++;
-            }
-
-            for(int j = i + 1;j < n;j++){
-                if(Sensor.getDistance(allSensors[i],allSensors[j]) > 2*r) continue;		//i、j不相交，直接跳过
-                int tmpans = 0;
-                Sensor centre = find_centre(allSensors[i], allSensors[j],r);		//找出以i、j单位圆的交点之一centre
-                int k = 0;
-                cloveredSensor[i][j] = new LinkedList<Sensor>();
-                for(;k < n;k++){		//枚举其余所有点，记录离centre距离小于1的点的数量	
-                     
-                    //if(tmpans + n - k <= ans) break;
-                    float tmp = Sensor.getDistance(centre, allSensors[k]);
-                    //if(tmp < 1.0 || fabs(tmp - 1.0) < eps) tmpans++;
-                    if(tmp <= r+0.000001) {
-                        tmpans++;	
-                        cloveredSensor[i][j].add(allSensors[k]);
-                    }//想法：在此处添加一个Point数组记录被圈住的点
-                }
-                if(ans < tmpans) {
-                    ans = tmpans ;
-                }//想法：在此处挑出圈住最多点的那个Point数组
-            }
-        }
-        int maxlength = 1,temp_i=0,temp_j=0;
-        for(int i=0;i < n; i++){
-            for(int j=i+1;j < n; j++){
-                if(Sensor.getDistance(allSensors[i],allSensors[j]) > 2*r) continue;
-
-                if(maxlength <= cloveredSensor[i][j].size()){
-                    maxlength =cloveredSensor[i][j].size();
-                    temp_i = i;
-                    temp_j = j;
-                }
-            }
-        }
-        max_cloveredSensor = cloveredSensor[temp_i][temp_j];
-//        for (int i=0;i < max_cloveredSensor.size();i++){
-//            for(int j=0;j < allSensors.length; j++){
-//                if(max_cloveredSensor.get(i) == allSensors[j]){
-//                    for (int k=j;k < allSensors.length-1;k++){
-//                        allSensors[k]=allSensors[k+1];
-//                    }
-//                }
-//                break;
-//            }
-//        }
+        max_cloveredSensor.add(allSensors[0]);
         return max_cloveredSensor;
+
     }
     public  static  Sensor[] update_allSensors(LinkedList<Sensor> cloveredSensor,Sensor[] allSensors){
         int new_allSensors_length = allSensors.length - cloveredSensor.size();

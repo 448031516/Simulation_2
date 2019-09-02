@@ -4,9 +4,9 @@ public class run {
 
     public static void main(String[] args) {
         //网络规模
-        float networkSize = 150;
+        float networkSize = 40;
         //传感器节点个数
-        int nodenum = 100;
+        int nodenum = 12;
         //系统当前时间初始为0s
         int systemTime = 0;
         //能量消耗率最小值
@@ -16,27 +16,46 @@ public class run {
         //多跳阈值
         float THR_erRateEFF = 0.1f;
 
+        circle[] cluster_circle = new circle[100];		//簇圆
+        int cluster_circle_NUM;
         LinkedList<Point> lists;
-         final    LinkedList<Sensor> cluster,cluster1;
-        int cluster_NUM;
-        Sensor[] allSensor;
+        LinkedList<Point>[] cluster_point = new LinkedList[100];		//簇，但将簇内Sensor转换成Point
+        final LinkedList<Sensor>[] cluster = new LinkedList[1000];		//簇，元素为Sensor
+        LinkedList<Point> Centroid = new LinkedList<Point>();
+        int cluster_NUM  ;
+        Sensor[][] allSensor = new Sensor[1000][];
         int allSensor_level = 0;
-        circle cluster_circle, a;
+        LinkedList<Point>[] cluster_edge = new LinkedList[100] ;
+        int cluster_Point_NUM ;
 
         lists = new LinkedList<Point>();
+        cluster_NUM = 0;
+        cluster_Point_NUM=0;
+        cluster_circle_NUM = 0;
+//		cluster[cluster_NUM] = new LinkedList<Sensor>();
+        cluster_point[cluster_Point_NUM] = new LinkedList<Point>();
+        allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
+        cluster_edge[0] = new LinkedList<Point>();
 
-//        cluster = new LinkedList<Sensor>();
-//        cluster1 = new LinkedList<Sensor>();
-        allSensor = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
+//**************************分簇********************************
+        while (allSensor[allSensor_level].length!=0){
+            cluster[cluster_NUM] = WsnFunction.findSensors(3.4f, allSensor[allSensor_level]);
+            ++allSensor_level;
+            allSensor[allSensor_level] = new Sensor[allSensor[allSensor_level-1].length - cluster[cluster_NUM].size()];
+            allSensor[allSensor_level] = WsnFunction.update_allSensors(cluster[cluster_NUM],allSensor[allSensor_level-1]);
+            for (int i = 0; i < cluster[cluster_NUM].size(); i++) {
+                lists.remove(cluster[cluster_NUM].get(i).location);
+            }
+            //输出各个簇所包含的节点
+            for (Sensor s : cluster[cluster_NUM]) {
+                System.out.println(s.location+"from cluster No."+cluster_NUM);
+            }
+            ++cluster_NUM;
+        }
+//**************************************************************
 
-        cluster = WsnFunction.findSensors(20, allSensor);
-        cluster1 = WsnFunction.findSensors(20, allSensor);
 
-        cluster_circle = WsnFunction.min_center(cluster);
-        System.out.println(cluster_circle.r);
 
-        a = WsnFunction.min_center(cluster1);
-        System.out.println(a.r);
     }
 
 

@@ -11,9 +11,9 @@ public class Simulation_2 extends PApplet {
 		PApplet.runSketch(new String[]{"ProcessingTest"}, pt);
 	}
 
-	float networkSize = 150;
+	float networkSize = 40;
 	//传感器节点个数
-	int nodenum = 100;
+	int nodenum = 12;
 	//系统当前时间初始为0s
 	int systemTime = 0;
 	//能量消耗率最小值
@@ -163,7 +163,7 @@ public class Simulation_2 extends PApplet {
 	public void onFind_cluster() {
 
 	    //cluster[cluster_NUM] = new LinkedList<Sensor>();
-		cluster[cluster_NUM] = WsnFunction.findSensors(20, allSensor[allSensor_level]);
+		cluster[cluster_NUM] = WsnFunction.findSensors(6, allSensor[allSensor_level]);
 		++allSensor_level;
 		allSensor[allSensor_level] = new Sensor[allSensor[allSensor_level-1].length - cluster[cluster_NUM].size()];
 		allSensor[allSensor_level] = WsnFunction.update_allSensors(cluster[cluster_NUM],allSensor[allSensor_level-1]);
