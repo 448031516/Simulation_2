@@ -6,7 +6,7 @@ public class run {
         //网络规模
         float networkSize = 40;
         //传感器节点个数
-        int nodenum = 12;
+        int nodenum = 28;
         //系统当前时间初始为0s
         int systemTime = 0;
         //能量消耗率最小值
@@ -15,6 +15,8 @@ public class run {
         float maxECR = 0.06f;
         //多跳阈值
         float THR_erRateEFF = 0.1f;
+
+        float D =3.4f;//聚类圆半径
 
         circle[] cluster_circle = new circle[100];		//簇圆
         Point[] maodian = new Point[100];
@@ -42,7 +44,7 @@ public class run {
         System.out.println("***********************");
         System.out.println("分簇情况如下");
         while (allSensor[allSensor_level].length!=0){
-            cluster[cluster_NUM] = WsnFunction.findSensors(3.4f, allSensor[allSensor_level]);
+            cluster[cluster_NUM] = WsnFunction.findSensors(D, allSensor[allSensor_level]);
             ++allSensor_level;
             allSensor[allSensor_level] = new Sensor[allSensor[allSensor_level-1].length - cluster[cluster_NUM].size()];
             allSensor[allSensor_level] = WsnFunction.update_allSensors(cluster[cluster_NUM],allSensor[allSensor_level-1]);
@@ -58,7 +60,7 @@ public class run {
         System.out.println("***********************");
 //**************************充电器摆放位置*********************************
         for (int i=0;cluster[i]!=null;i++){
-            int x=0,y=0;
+            float x=0,y=0;
             for (Sensor S : cluster[i]){
                 x+=S.location.x;
                 y+=S.location.y;
@@ -85,8 +87,14 @@ public class run {
         System.out.println("充电器位置");
         //获取充电器摆放位置
         for (int i=0;cluster[i]!=null;i++){
-            maodian[i] = WsnFunction.getPoint(cluster_circle[i],cluster_circle[i].center,Centroid.get(i));
-            System.out.println(maodian[i]);
+            if (cluster_circle[i].center.x!=Centroid.get(i).x&&cluster_circle[i].center.y!=Centroid.get(i).y){
+                maodian[i] = WsnFunction.getPoint(cluster_circle[i],cluster_circle[i].center,Centroid.get(i));
+                System.out.println(maodian[i]);
+            }else {
+                maodian[i] = new Point();
+                maodian[i].x = cluster_circle[i].center.x; maodian[i].y = cluster_circle[i].center.y+D;
+                System.out.println(maodian[i]);
+            }
         }
         System.out.println("***********************");
         System.out.println("充电效用");
