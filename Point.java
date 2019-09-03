@@ -8,6 +8,10 @@ public class Point {
     float y;
     int num;
     boolean founded = false;
+    public Point(double lx, double ly) {
+        x = (float) lx;
+        y = (float) ly;
+    }
     public Point(float lx, float ly) {
         x = lx;
         y = ly;

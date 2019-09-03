@@ -353,6 +353,7 @@ public class WsnFunction {
 
     //找出能包含凸多边形的圆
     public static circle find_cirle(LinkedList<Point> cluster_edge) {
+        if (cluster_edge.size() > 1){
             float   max = 0;
             circle A = new circle();
             for (int i=0;i < cluster_edge.size();i++){
@@ -365,6 +366,40 @@ public class WsnFunction {
                 }
             }
             return A;
+        }
+        circle A = new circle();
+        A.center = cluster_edge.getFirst();
+        A.r = 0;
+        return  A;
+    }
+
+//求直线与圆的交点
+    public static Point  getPoint(circle A,Point start,Point end) {
+        // 求直线
+        double k = (end.y - start.y) / (end.x - start.x);
+        double b = end.y - k*end.x;
+        //列方程
+        double x1=0,y1=0,x2=0,y2=0;
+        double c = A.center.x*A.center.x + (b - A.center.y)*(b- A.center.y) -A.r*A.r;
+        double a = (1 + k*k);
+        double b1 = (2*A.center.x - 2*k*(b - A.center.y));
+
+        double  tmp = Math.sqrt(b1*b1 - 4*a*c);
+        x1 = ( b1 + tmp )/(2*a);
+        y1 = k*x1 + b;
+        x2 = ( b1 - tmp)/(2*a);
+        y2 = k*x2 + b;
+//判断求出的点是否在圆上
+        double res = (x1 -A.center.x)*(x1 -A.center.x) + (y1 - A.center.y)*(y1 -A.center.y);
+        Point P ;
+        if( res == A.r*A.r)
+        {
+            P = new Point(x1,y1);
+        }    else
+        {
+            P = new Point(x2,y2);
+        }
+        return P;
     }
 
 

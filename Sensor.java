@@ -6,6 +6,7 @@ public class Sensor {
 
     int number = 0;//节点编号
     Point location = null;//节点的位置
+//    Point Centro = null;//簇心的位置
     float maxCapacity = 50;//电池容量默认50J,所有节点都一样
     float ecRate = 0;//平均能量消耗率J/s,距离基站越近消耗越大
     float erRate = 0;//能量接受率[1,5],与小车位置有关,需要确定好小车充电停止点后,才能确定节点能量接受率

@@ -17,6 +17,7 @@ public class run {
         float THR_erRateEFF = 0.1f;
 
         circle[] cluster_circle = new circle[100];		//簇圆
+        Point[] maodian = new Point[100];
         int cluster_circle_NUM;
         LinkedList<Point> lists;
         LinkedList<Point>[] cluster_point = new LinkedList[100];		//簇，但将簇内Sensor转换成Point
@@ -38,6 +39,8 @@ public class run {
         cluster_edge[0] = new LinkedList<Point>();
 
 //**************************分簇********************************
+        System.out.println("***********************");
+        System.out.println("分簇情况如下");
         while (allSensor[allSensor_level].length!=0){
             cluster[cluster_NUM] = WsnFunction.findSensors(3.4f, allSensor[allSensor_level]);
             ++allSensor_level;
@@ -52,10 +55,53 @@ public class run {
             }
             ++cluster_NUM;
         }
-//**************************************************************
-
-
-
+        System.out.println("***********************");
+//**************************充电器摆放位置*********************************
+        for (int i=0;cluster[i]!=null;i++){
+            int x=0,y=0;
+            for (Sensor S : cluster[i]){
+                x+=S.location.x;
+                y+=S.location.y;
+            }
+            Point a = new Point();
+            a.x = x/cluster[i].size();
+            a.y = y/cluster[i].size();
+            Centroid.add(a);
+        }
+//        for (Point s : Centroid) {
+//            System.out.println(s+"+");
+//        }
+        System.out.println("簇心位置");
+        for (int i=0;cluster[i]!=null;i++){
+            cluster_point[i] = new LinkedList<Point>();
+            for (int j = 0;j < cluster[i].size();j++){
+                cluster_point[i].add(cluster[i].get(j).location);
+            }
+            cluster_edge[i] = MinimumBoundingPolygon.findSmallestPolygon(cluster_point[i]);
+            cluster_circle[i] = WsnFunction.find_cirle(cluster_edge[i]);
+            System.out.println(cluster_circle[i].center);
+        }
+        System.out.println("***********************");
+        System.out.println("充电器位置");
+        //获取充电器摆放位置
+        for (int i=0;cluster[i]!=null;i++){
+            maodian[i] = WsnFunction.getPoint(cluster_circle[i],cluster_circle[i].center,Centroid.get(i));
+            System.out.println(maodian[i]);
+        }
+        System.out.println("***********************");
+        System.out.println("充电效用");
+        double SumER = 0;//总充电效率
+        double SumEREFF = 0;
+        for (int i=0;cluster[i]!=null;i++){
+            System.out.println("簇"+i+"各节点的接受功率");
+            for (Sensor S : cluster[i]){
+                S.erRate = (float)( 100/Math.pow(40+Point.getDistance(S.location,maodian[i]),2));
+                System.out.print(S.erRate+"+");
+                SumEREFF+=Math.min(S.erRate*20,1);
+            }
+            System.out.println("");
+        }
+        System.out.println("总充电效用"+SumEREFF/nodenum);
     }
 
 
