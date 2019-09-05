@@ -4,9 +4,9 @@ public class run {
 
     public static void main(String[] args) {
         //网络规模
-        float networkSize = 40;
+        float networkSize = 150;
         //传感器节点个数
-        int nodenum = 28;
+        int nodenum = 100;
         //系统当前时间初始为0s
         int systemTime = 0;
         //能量消耗率最小值
@@ -16,10 +16,12 @@ public class run {
         //多跳阈值
         float THR_erRateEFF = 0.1f;
 
-        float D =3.4f;//聚类圆半径
+        float D =12;//聚类圆半径
+        double V = Math.PI/2 ; //充电器角度
+        double R = 20;//充电器半径
 
         circle[] cluster_circle = new circle[100];		//簇圆
-        Point[] maodian = new Point[100];
+        Point[] maodian = new Point[100]; //充电器摆放位置
         int cluster_circle_NUM;
         LinkedList<Point> lists;
         LinkedList<Point>[] cluster_point = new LinkedList[100];		//簇，但将簇内Sensor转换成Point
@@ -97,15 +99,30 @@ public class run {
             }
         }
         System.out.println("***********************");
+        System.out.println("节点覆盖情况");
+        for (int i=0;cluster[i]!=null;i++){
+            for (int j=0; j < cluster[i].size(); j++){
+                cluster[i].get(j).isClover = WsnFunction.IFclovered(maodian[i],cluster_circle[i].center,V,R,cluster[i].get(j));
+                System.out.println(cluster[i].get(j).location+"from cluster No."+ i +" if clovered?:"+ cluster[i].get(j).isClover);
+            }
+        }
+
+
+        System.out.println("***********************");
         System.out.println("充电效用");
         double SumER = 0;//总充电效率
         double SumEREFF = 0;
         for (int i=0;cluster[i]!=null;i++){
             System.out.println("簇"+i+"各节点的接受功率");
             for (Sensor S : cluster[i]){
-                S.erRate = (float)( 100/Math.pow(40+Point.getDistance(S.location,maodian[i]),2));
-                System.out.print(S.erRate+"+");
-                SumEREFF+=Math.min(S.erRate*20,1);
+                if (S.isClover) {
+                    S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian[i]), 2));
+                    System.out.print(S.erRate + "+");
+                }else {
+                    //此处计算多跳能量接收率
+                }
+                    SumEREFF += Math.min(S.erRate * 20, 1);
+
             }
             System.out.println("");
         }

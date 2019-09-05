@@ -141,7 +141,7 @@ public class WsnFunction {
         for(int i=0;i < cluster.length;i++){
             if (!cluster[i].isClover)  {
                 int     nextHOP=-1 ;
-                double maxERrate=0;
+                double maxERrate=0 ;
                 boolean change =false;
                 for (int f=0;f < cluster.length;f++){
                     if (cluster[f].isClover && cluster[i].getERRate(Sensor.getDistance(cluster[i],cluster[f]))*cluster[f].erRateEFF > maxERrate ){     //如果选择的下一跳节点为MC直接覆盖节点，且以此为其中继节点能量传输效率高，则记录此中继节点
@@ -389,7 +389,7 @@ public class WsnFunction {
         y1 = k*x1 + b;
         x2 = ( b1 - tmp)/(2*a);
         y2 = k*x2 + b;
-//判断求出的点是否在圆上
+    //判断求出的点是否在圆上
         double res = (x1 -A.center.x)*(x1 -A.center.x) + (y1 - A.center.y)*(y1 -A.center.y);
         Point P ;
         if( res == A.r*A.r)
@@ -401,6 +401,23 @@ public class WsnFunction {
         }
         return P;
     }
+//判断节点是否被充电器直接覆盖
+    public static boolean IFclovered(Point start,Point end , double angle , double D, Sensor s){
+        double Charger_angle = getAngleByPoint(end.x-start.x,end.y-start.y);
+        double Sensor_angle = getAngleByPoint(s.location.x-start.x,s.location.y-start.y);
+        if (Sensor_angle <= Charger_angle + angle/2 && Sensor_angle >= Charger_angle - angle/2 && Point.getDistance(start,s.location) <= D){
+            return true;
+        }else return false;
+    }
+
+    public static double getAngleByPoint(float x1, float y1)
+    {
+        double d = Math.acos(x1/Math.sqrt(x1*x1+y1*y1));
+//        logger.info(String.format("x: %f, y: %f,d: %f",x1,y1,(float)d));
+        return y1>0 ? d : 2*Math.PI-d;
+    }
+
+
 
 
 
