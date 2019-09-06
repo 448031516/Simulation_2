@@ -19,6 +19,7 @@ public class run {
         float D =12;//聚类圆半径
         double V = Math.PI/2 ; //充电器角度
         double R = 20;//充电器半径
+        float Cp = 0.05f;
 
         circle[] cluster_circle = new circle[100];		//簇圆
         Point[] maodian = new Point[100]; //充电器摆放位置
@@ -55,6 +56,7 @@ public class run {
             }
             //输出各个簇所包含的节点
             for (Sensor s : cluster[cluster_NUM]) {
+                s.cluster = cluster_NUM;
                 System.out.println(s.location+"from cluster No."+cluster_NUM);
             }
             ++cluster_NUM;
@@ -114,17 +116,60 @@ public class run {
         double SumEREFF = 0;
         for (int i=0;cluster[i]!=null;i++){
             System.out.println("簇"+i+"各节点的接受功率");
-            for (Sensor S : cluster[i]){
+ /*           for (Sensor S : cluster[i]){
                 if (S.isClover) {
                     S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian[i]), 2));
+                    S.erRateEFF = Math.min( S.erRate * Cp,1);
+                    S.multihop = -2 ;
                     System.out.print(S.erRate + "+");
                 }else {
-                    //此处计算多跳能量接收率
+                    //此处初选多跳路径
+                    int     nextHOP=-1 ;
+                    double maxERrate=0 ;
+                    boolean change =false;
+                    for (int f=0;f < cluster[i].size();f++){
+                        if (cluster[i].get(f).isClover && S.getERRate(Sensor.getDistance(S,cluster[i].get(f)))*cluster[i].get(f).erRateEFF > maxERrate ){     //如果选择的下一跳节点为MC直接覆盖节点，且以此为其中继节点能量传输效率高，则记录此中继节点
+                            maxERrate = S.getERRate(Sensor.getDistance(S,cluster[i].get(f)))*cluster[i].get(f).erRateEFF;
+                            nextHOP = f;
+                            change  = true;
+                        }
+                    }
+                    if (nextHOP >= 0) {
+                        S.erRateEFF = S.getERRate(Sensor.getDistance(S, cluster[i].get(nextHOP))) * cluster[i].get(nextHOP).erRateEFF;     //多跳效率为多跳路径中每一段效率累乘。
+                        S.multihop = cluster[i].get(nextHOP).number;                                                                                  //确定该节点i的下一跳节点。
+                    }
                 }
-                    SumEREFF += Math.min(S.erRate * 20, 1);
+//                    SumEREFF += Math.min(S.erRate * 20, 1);
 
+            }*/
+            for (Sensor S : cluster[i]){
+                if (S.isClover) {
+                    S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian[S.cluster]), 2));
+                    S.erRateEFF = Math.min(S.erRate * (1/Cp), 1);
+                    S.multihop = -2;
+                }
             }
-            System.out.println("");
+            while (WsnFunction.IF_noPATH(cluster[i])) {
+                cluster[i] = WsnFunction.multihop_PATH(cluster[i],maodian,Cp);
+                //从得到的所有未被覆盖节点中选取erRateEFF最大的节点及其路径（下一跳）
+                double maxERrate = 0;
+                int sensor_maxERrate = -1;
+                for (int f1 = 0; f1 < cluster[i].size(); f1++) {
+                    if (!cluster[i].get(f1).isClover && cluster[i].get(f1).erRateEFF > maxERrate) {
+                        maxERrate = cluster[i].get(f1).erRateEFF;
+                        sensor_maxERrate = f1;
+                    }
+                }
+                if (sensor_maxERrate >= 0) {
+                    cluster[i].get(sensor_maxERrate).isClover = true;//将最大erRateEFF的节点加入到已覆盖的集合中
+                }
+            }
+
+            for (Sensor S : cluster[i]){
+                System.out.print(S.erRate + "+");
+                System.out.println("");
+                SumEREFF += S.erRateEFF;
+            }
         }
         System.out.println("总充电效用"+SumEREFF/nodenum);
     }

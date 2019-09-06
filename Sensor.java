@@ -14,7 +14,7 @@ public class Sensor {
     float remainingE = 50;//初始剩余能量等于电池容量
     boolean isCharging = false;//是否需要充电,默认为false表示不需要充电
     boolean isFailure = false;//表示节点是否死亡,false表示未死亡
-    int inHoneycomb ; //节点所属的簇
+    int cluster = -1 ; //节点所属的簇
     boolean isClover = false;//是否已经被inHoneycomb内的锚点直接覆盖
     int multihop = -1;    //未被直接覆盖的节点，其多跳充电的下一条
 
@@ -71,7 +71,7 @@ public class Sensor {
 
 
     public float getERRate(float distance) {
-        float nta;
+/*        float nta;
         if (distance == MCV.maxRadius) nta = 0.2f;
         else {
             //能量传递效率[0.2,1]
@@ -79,6 +79,10 @@ public class Sensor {
         }
         if (nta > 0.2) return nta;
         else return nta = -1;
+        */
+        float nta =  (float) (100 / Math.pow(40 + distance, 2));
+        return nta;
+
     }
 
     //根据节点与停止点的距离计算节点的能量接受率[1,5]

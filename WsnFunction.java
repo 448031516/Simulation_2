@@ -52,6 +52,7 @@ public class WsnFunction {
         }
         return anchor;
     }
+/*
     //MC在锚点p时覆盖到的传感器节点个数
     public static int cloverNUM(Point p,Sensor[] allSensor){
         int num=0;
@@ -71,6 +72,7 @@ public class WsnFunction {
 //    public static Point[] Anchor(Point[][] p){
 //
 //    }
+*/
 
 
     //在指定区间大小networkSize获得n个随机数
@@ -136,9 +138,9 @@ public class WsnFunction {
 
 
     //初步选取多跳路径
-    public static Sensor[] multihop_PATH(Sensor[] cluster){
+    public static LinkedList<Sensor> multihop_PATH(LinkedList<Sensor> cluster,Point[] maodian,float Cp){
 
-        for(int i=0;i < cluster.length;i++){
+/*        for(int i=0;i < cluster.length;i++){
             if (!cluster[i].isClover)  {
                 int     nextHOP=-1 ;
                 double maxERrate=0 ;
@@ -155,15 +157,41 @@ public class WsnFunction {
                     cluster[i].multihop = cluster[nextHOP].number;                                                                                  //确定该节点i的下一跳节点。
                 }
             }
+        }*/
+        for (Sensor S : cluster){
+            if (!S.isClover) {
+//                S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian[S.cluster]), 2));
+//                S.erRateEFF = Math.min( S.erRate * Cp,1);
+//                S.multihop = -2 ;
+////                System.out.print(S.erRate + "+");
+//            }else {
+                //此处初选多跳路径
+                int     nextHOP=-1 ;
+                double maxERrate=0 ;
+                boolean change =false;
+                for (int f=0;f < cluster.size();f++){
+                    if (cluster.get(f).isClover && S.getERRate(Sensor.getDistance(S,cluster.get(f)))*(1/Cp)*cluster.get(f).erRateEFF > maxERrate ){     //如果选择的下一跳节点为MC直接覆盖节点，且以此为其中继节点能量传输效率高，则记录此中继节点
+                        maxERrate = S.getERRate(Sensor.getDistance(S,cluster.get(f)))*(1/Cp)*cluster.get(f).erRateEFF;
+                        nextHOP = f;
+                        change  = true;
+                    }
+                }
+                if (nextHOP >= 0) {
+                    S.erRateEFF = S.getERRate(Sensor.getDistance(S, cluster.get(nextHOP))) *(1/Cp)* cluster.get(nextHOP).erRateEFF;     //多跳效率为多跳路径中每一段效率累乘。
+                    S.multihop = cluster.get(nextHOP).number;                                                                                  //确定该节点i的下一跳节点。
+                }
+            }
+//                    SumEREFF += Math.min(S.erRate * 20, 1);
+
         }
         return cluster ;
     }
     //查询簇中是否还存在没有分配多跳路径的节点，存在没有分配多跳路径的节点就返回true ，否则false
-    public static boolean IF_noPATH (Sensor[] cluster){
+    public static boolean IF_noPATH (LinkedList<Sensor> cluster){
         boolean judge = false ;
-        if (cluster.length!=0) {
-            for (int i = 0; i < cluster.length; i++) {
-                if (!cluster[i].isClover) judge = true;
+        if (cluster.size()!=0) {
+            for (int i = 0; i < cluster.size(); i++) {
+                if (!cluster.get(i).isClover) judge = true;
             }
         }
         return judge;
