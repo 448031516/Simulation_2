@@ -138,7 +138,7 @@ public class WsnFunction {
 
 
     //初步选取多跳路径
-    public static LinkedList<Sensor> multihop_PATH(LinkedList<Sensor> cluster,Point[] maodian,float Cp){
+    public static LinkedList<Sensor> multihop_PATH(LinkedList<Sensor> cluster,float Cp){
 
 /*        for(int i=0;i < cluster.length;i++){
             if (!cluster[i].isClover)  {

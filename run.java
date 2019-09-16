@@ -109,13 +109,13 @@ public class run {
                 double k = Math.atan2((Centroid.get(i).y-a.y),(Centroid.get(i).x-a.x));
                 b.x = (float)(a.x - D*Math.cos(k));
                 b.y = (float)(a.y - D*Math.sin(k));
-                maodian_serial[i] = WsnFunction.divided_line(Centroid.get(i),b,100);
+                maodian_serial[i] = WsnFunction.divided_line(a,b,100);
             }else if (cluster[i].size()==2){
                 Point a = new Point((cluster[i].get(0).location.x+cluster[i].get(1).location.x)/2,(cluster[i].get(0).location.y+cluster[i].get(1).location.y)/2);
                 double k = Math.PI/2 + Math.atan2((cluster[i].get(1).location.y-cluster[i].get(0).location.y),(cluster[i].get(1).location.x-cluster[i].get(0).location.x));
                 Point b = new Point();
-                b.x = (float)(a.x+ D*Math.cos(k));
-                b.y = (float)(a.y + D*Math.sin(k));
+                b.x = (float)(a.x - D*Math.cos(k));
+                b.y = (float)(a.y - D*Math.sin(k));
                 maodian_serial[i] = WsnFunction.divided_line(a,b,100);
             }else {
                 maodian[i] = cluster[i].get(0).location;
@@ -189,7 +189,7 @@ public class run {
                  }
                  if (Clover_num > 0 ){
                      while (WsnFunction.IF_noPATH(cluster[i])) {
-                         cluster[i] = WsnFunction.multihop_PATH(cluster[i], maodian, Cp);
+                         cluster[i] = WsnFunction.multihop_PATH(cluster[i] , Cp);
                          //从得到的所有未被覆盖节点中选取erRateEFF最大的节点及其路径（下一跳）
                          double maxERrate = 0;
                          int sensor_maxERrate = -1;
@@ -254,7 +254,7 @@ public class run {
                     }
                 }
                 while (WsnFunction.IF_noPATH(cluster[i])) {
-                    cluster[i] = WsnFunction.multihop_PATH(cluster[i],maodian,Cp);
+                    cluster[i] = WsnFunction.multihop_PATH(cluster[i],Cp);
                     //从得到的所有未被覆盖节点中选取erRateEFF最大的节点及其路径（下一跳）
                     double maxERrate = 0;
                     int sensor_maxERrate = -1;
