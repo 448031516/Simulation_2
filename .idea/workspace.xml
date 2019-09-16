@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sensor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WsnFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/WsnFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" afterDir="false" />
@@ -184,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567684191683</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="优化多tiao">
+      <created>1567762335215</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1567762335215</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,15 +212,16 @@
     <MESSAGE value="节点分簇" />
     <MESSAGE value="第一阶段完成" />
     <MESSAGE value="end" />
-    <option name="LAST_COMMIT_MESSAGE" value="end" />
+    <MESSAGE value="优化多tiao" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化多tiao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/run.java</url>
-          <line>173</line>
-          <option name="timeStamp" value="2" />
+          <line>274</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -223,6 +230,11 @@
         <watch expression="cluster" />
         <watch expression="cluster" />
         <watch expression="cluster[0].get(1)" />
+        <watch expression="cluster[0].get(1)" language="JAVA" />
+        <watch expression="maodian_serial[0]" />
+        <watch expression="maodian_serial[0]" language="JAVA" />
+        <watch expression="maodian" />
+        <watch expression="cluster_point" />
       </configuration>
     </watches-manager>
   </component>

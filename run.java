@@ -23,11 +23,12 @@ public class run {
 
         circle[] cluster_circle = new circle[100];		//簇圆
         Point[] maodian = new Point[100]; //充电器摆放位置
+        LinkedList<Point>[] maodian_serial = new LinkedList[100];
         int cluster_circle_NUM;
         LinkedList<Point> lists;
         LinkedList<Point>[] cluster_point = new LinkedList[100];		//簇，但将簇内Sensor转换成Point
         final LinkedList<Sensor>[] cluster = new LinkedList[1000];		//簇，元素为Sensor
-        LinkedList<Point> Centroid = new LinkedList<Point>();
+        LinkedList<Point> Centroid = new LinkedList<Point>();               //簇心
         int cluster_NUM  ;
         Sensor[][] allSensor = new Sensor[1000][];
         int allSensor_level = 0;
@@ -90,8 +91,8 @@ public class run {
         System.out.println("***********************");
         System.out.println("充电器位置");
         //获取充电器摆放位置
-        for (int i=0;cluster[i]!=null;i++){
-            if (cluster_circle[i].center.x!=Centroid.get(i).x&&cluster_circle[i].center.y!=Centroid.get(i).y){
+/*        for (int i=0;cluster[i]!=null;i++){
+            if (cluster_circle[i].center.x!=Centroid.get(i).x||cluster_circle[i].center.y!=Centroid.get(i).y){
                 maodian[i] = WsnFunction.getPoint(cluster_circle[i],cluster_circle[i].center,Centroid.get(i));
                 System.out.println(maodian[i]);
             }else {
@@ -99,7 +100,28 @@ public class run {
                 maodian[i].x = cluster_circle[i].center.x; maodian[i].y = cluster_circle[i].center.y+D;
                 System.out.println(maodian[i]);
             }
+        }*/
+        for (int i=0;cluster[i]!=null;i++){
+            if (cluster[i].size()>2){
+                Point a = new Point();
+                Point b = new Point();
+                a = WsnFunction.getPoint(cluster_circle[i],cluster_circle[i].center,Centroid.get(i));
+                double k = Math.atan2((Centroid.get(i).y-a.y),(Centroid.get(i).x-a.x));
+                b.x = (float)(a.x - D*Math.cos(k));
+                b.y = (float)(a.y - D*Math.sin(k));
+                maodian_serial[i] = WsnFunction.divided_line(Centroid.get(i),b,100);
+            }else if (cluster[i].size()==2){
+                Point a = new Point((cluster[i].get(0).location.x+cluster[i].get(1).location.x)/2,(cluster[i].get(0).location.y+cluster[i].get(1).location.y)/2);
+                double k = Math.PI/2 + Math.atan2((cluster[i].get(1).location.y-cluster[i].get(0).location.y),(cluster[i].get(1).location.x-cluster[i].get(0).location.x));
+                Point b = new Point();
+                b.x = (float)(a.x+ D*Math.cos(k));
+                b.y = (float)(a.y + D*Math.sin(k));
+                maodian_serial[i] = WsnFunction.divided_line(a,b,100);
+            }else {
+                maodian[i] = cluster[i].get(0).location;
+            }
         }
+/*
         System.out.println("***********************");
         System.out.println("节点覆盖情况");
         for (int i=0;cluster[i]!=null;i++){
@@ -108,14 +130,14 @@ public class run {
                 System.out.println(cluster[i].get(j).location+"from cluster No."+ i +" if clovered?:"+ cluster[i].get(j).isClover);
             }
         }
+*/
 
 
         System.out.println("***********************");
         System.out.println("充电效用");
         double SumER = 0;//总充电效率
-        double SumEREFF = 0;
         for (int i=0;cluster[i]!=null;i++){
-            System.out.println("簇"+i+"各节点的接受功率");
+//            System.out.println("簇"+i+"各节点的接受功率");
  /*           for (Sensor S : cluster[i]){
                 if (S.isClover) {
                     S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian[i]), 2));
@@ -142,41 +164,125 @@ public class run {
 //                    SumEREFF += Math.min(S.erRate * 20, 1);
 
             }*/
-            for (Sensor S : cluster[i]){
-                if (S.isClover) {
-                    S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian[S.cluster]), 2));
-                    S.erRateEFF = Math.min(S.erRate * (1/Cp), 1);
-                    S.multihop = -2;
-                }
+            if (cluster[i].size() < 2){
+                cluster[i].get(0).erRateEFF=1;
+                cluster[i].get(0).multihop=-2;
+                cluster[i].get(0).isClover = true;
+                continue;
             }
-            while (WsnFunction.IF_noPATH(cluster[i])) {
-                cluster[i] = WsnFunction.multihop_PATH(cluster[i],maodian,Cp);
-                //从得到的所有未被覆盖节点中选取erRateEFF最大的节点及其路径（下一跳）
-                double maxERrate = 0;
-                int sensor_maxERrate = -1;
-                for (int f1 = 0; f1 < cluster[i].size(); f1++) {
-                    if (!cluster[i].get(f1).isClover && cluster[i].get(f1).erRateEFF > maxERrate) {
-                        maxERrate = cluster[i].get(f1).erRateEFF;
-                        sensor_maxERrate = f1;
-                    }
-                }
-                if (sensor_maxERrate >= 0) {
-                    cluster[i].get(sensor_maxERrate).isClover = true;//将最大erRateEFF的节点加入到已覆盖的集合中
-                }
-            }
+            double EFF = 0,max = 0;
 
-            for (Sensor S : cluster[i]){
-                System.out.print(S.erRate + "+");
-                System.out.println("");
-                SumEREFF += S.erRateEFF;
+             for (int maodian_ = 0;maodian_< maodian_serial[i].size();maodian_++) {
+                 for (int j = 0; j < cluster[i].size(); j++) {
+                     cluster[i].get(j).isClover = WsnFunction.IFclovered(maodian_serial[i].get(maodian_), Centroid.get(i), V, R, cluster[i].get(j));
+                 }
+                 for (Sensor S : cluster[i]) {
+                     if (S.isClover) {
+                         S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian_serial[i].get(maodian_)), 2));
+                         S.erRateEFF = Math.min(S.erRate * (1 / Cp), 1);
+                         S.multihop = -2;
+                     }
+                 }
+                 int Clover_num=0;
+                 for (Sensor S : cluster[i]) {
+                     if (S.isClover) Clover_num++;
+                 }
+                 if (Clover_num > 0 ){
+                     while (WsnFunction.IF_noPATH(cluster[i])) {
+                         cluster[i] = WsnFunction.multihop_PATH(cluster[i], maodian, Cp);
+                         //从得到的所有未被覆盖节点中选取erRateEFF最大的节点及其路径（下一跳）
+                         double maxERrate = 0;
+                         int sensor_maxERrate = -1;
+                         for (int f1 = 0; f1 < cluster[i].size(); f1++) {
+                             if (!cluster[i].get(f1).isClover && cluster[i].get(f1).erRateEFF > maxERrate) {
+                                 maxERrate = cluster[i].get(f1).erRateEFF;
+                                 sensor_maxERrate = f1;
+                             }
+                         }
+                         if (sensor_maxERrate >= 0) {
+                             cluster[i].get(sensor_maxERrate).isClover = true;//将最大erRateEFF的节点加入到已覆盖的集合中
+                         }
+                     }
+                 }else {
+                     for (Sensor S : cluster[i]) {
+                         S.erRateEFF = 0;S.erRate = 0;
+                         S.isClover = false;
+                         S.multihop = -1;
+                     }
+                     continue;
+                 };
+                 double SumEREFF = 0;
+                 for (Sensor S : cluster[i]) {
+//                     System.out.print(S.erRate + "+");
+//                     System.out.println("");
+                     SumEREFF += S.erRateEFF;
+                 }
+                 if (SumEREFF > max ){
+                     max = SumEREFF;
+                     maodian[i] = maodian_serial[i].get(maodian_);          //最终确定锚点
+                 }
+                 for (Sensor S : cluster[i]) {
+                     S.erRateEFF = 0;S.erRate = 0;
+                     S.isClover = false;
+                     S.multihop = -1;
+                 }
+             }
+        }
+        for (int i=0;cluster[i]!=null;i++){
+            for (int j=0; j < cluster[i].size(); j++){
+                cluster[i].get(j).isClover = WsnFunction.IFclovered(maodian[i],cluster_circle[i].center,V,R,cluster[i].get(j));
+                System.out.println(cluster[i].get(j).location+"from cluster No."+ i +" if clovered?:"+ cluster[i].get(j).isClover);
             }
         }
-        System.out.println("总充电效用"+SumEREFF/nodenum);
+
+
+
+            double Sum = 0;
+            for (int i=0;cluster[i]!=null;i++){
+
+                if (cluster[i].size() < 2){
+                    cluster[i].get(0).erRateEFF=1;
+                    cluster[i].get(0).multihop=-2;
+                    cluster[i].get(0).isClover = true;
+                    continue;
+                }
+                for (Sensor S : cluster[i]){
+                    if (S.isClover) {
+                        S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian[S.cluster]), 2));
+                        S.erRateEFF = Math.min(S.erRate * (1/Cp), 1);
+                        S.multihop = -2;
+                    }
+                }
+                while (WsnFunction.IF_noPATH(cluster[i])) {
+                    cluster[i] = WsnFunction.multihop_PATH(cluster[i],maodian,Cp);
+                    //从得到的所有未被覆盖节点中选取erRateEFF最大的节点及其路径（下一跳）
+                    double maxERrate = 0;
+                    int sensor_maxERrate = -1;
+                    for (int f1 = 0; f1 < cluster[i].size(); f1++) {
+                        if (!cluster[i].get(f1).isClover && cluster[i].get(f1).erRateEFF > maxERrate) {
+                            maxERrate = cluster[i].get(f1).erRateEFF;
+                            sensor_maxERrate = f1;
+                        }
+                    }
+                    if (sensor_maxERrate >= 0) {
+                        cluster[i].get(sensor_maxERrate).isClover = true;//将最大erRateEFF的节点加入到已覆盖的集合中
+                    }
+                }
+
+                for (Sensor S : cluster[i]){
+                    System.out.print(S.erRateEFF + "+");
+                }
+                System.out.println(" ");
+            }
+
+        }
+
+//        System.out.println("总充电效用");
     }
 
 
 
-}
+
 /*
 
         Sensor[] allSensor = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);

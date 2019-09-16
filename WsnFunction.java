@@ -400,7 +400,17 @@ public class WsnFunction {
         A.r = 0;
         return  A;
     }
-
+//将直线等分为n个点
+    public static LinkedList<Point> divided_line(Point start,Point end,int n){
+        LinkedList<Point> serial = new LinkedList<>();
+        double x = end.x - start.x;
+        double y = end.y - start.y;
+        for (int i = 1; i<=n; i++){
+            Point p = new Point(start.x+i*x/n,start.y+i*y/n);
+            serial.add(p);
+        }
+        return serial;
+    }
 //求直线与圆的交点
     public static Point  getPoint(circle A,Point start,Point end) {
         // 求直线
