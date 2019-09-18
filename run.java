@@ -16,7 +16,7 @@ public class run {
         //多跳阈值
         float THR_erRateEFF = 0.1f;
 
-        float D =12;//聚类圆半径
+        float D =15;//聚类圆半径(R=20时，D取值为5.8~11.7)
         double V = Math.PI/2 ; //充电器角度
         double R = 20;//充电器半径
         float Cp = 0.05f;
@@ -56,11 +56,13 @@ public class run {
                 lists.remove(cluster[cluster_NUM].get(i).location);
             }
             //输出各个簇所包含的节点
-            for (Sensor s : cluster[cluster_NUM]) {
-                s.cluster = cluster_NUM;
-                System.out.println(s.location+"from cluster No."+cluster_NUM);
-            }
-            ++cluster_NUM;
+            if (cluster[cluster_NUM].size()>1) {
+                for (Sensor s : cluster[cluster_NUM]) {
+                    s.cluster = cluster_NUM;
+                    System.out.println(s.location + "from cluster No." + cluster_NUM);
+                }
+                ++cluster_NUM;
+            }else System.out.println(cluster[cluster_NUM].get(0).location + "此节点暂时孤立" );
         }
         System.out.println("***********************");
 //**************************充电器摆放位置*********************************
@@ -88,8 +90,7 @@ public class run {
             cluster_circle[i] = WsnFunction.find_cirle(cluster_edge[i]);
             System.out.println(cluster_circle[i].center);
         }
-        System.out.println("***********************");
-        System.out.println("充电器位置");
+
         //获取充电器摆放位置
 /*        for (int i=0;cluster[i]!=null;i++){
             if (cluster_circle[i].center.x!=Centroid.get(i).x||cluster_circle[i].center.y!=Centroid.get(i).y){
@@ -120,6 +121,7 @@ public class run {
             }else {
                 maodian[i] = cluster[i].get(0).location;
             }
+
         }
 /*
         System.out.println("***********************");
@@ -133,8 +135,7 @@ public class run {
 */
 
 
-        System.out.println("***********************");
-        System.out.println("充电效用");
+
         double SumER = 0;//总充电效率
         for (int i=0;cluster[i]!=null;i++){
 //            System.out.println("簇"+i+"各节点的接受功率");
@@ -171,7 +172,7 @@ public class run {
                 continue;
             }
             double EFF = 0,max = 0;
-
+            //确定充电器摆放位置
              for (int maodian_ = 0;maodian_< maodian_serial[i].size();maodian_++) {
                  for (int j = 0; j < cluster[i].size(); j++) {
                      cluster[i].get(j).isClover = WsnFunction.IFclovered(maodian_serial[i].get(maodian_), Centroid.get(i), V, R, cluster[i].get(j));
@@ -228,22 +229,38 @@ public class run {
                  }
              }
         }
+        System.out.println("***********************");
+        System.out.println("充电器位置");
+        for (int i=0;cluster[i]!=null;i++){
+            System.out.println(maodian[i]);
+        }
+        System.out.println("***********************");
+        System.out.println("充电器直接覆盖情况");
         for (int i=0;cluster[i]!=null;i++){
             for (int j=0; j < cluster[i].size(); j++){
-                cluster[i].get(j).isClover = WsnFunction.IFclovered(maodian[i],cluster_circle[i].center,V,R,cluster[i].get(j));
+//                if (cluster[i].size() < 2){
+//                    cluster[i].get(0).erRateEFF=1;
+//                    cluster[i].get(0).multihop=-2;
+//                    cluster[i].get(0).isClover = true;
+//                    System.out.println(cluster[i].get(j).location+"from cluster No."+ i +" if clovered?:"+ cluster[i].get(j).isClover);
+//                    continue;
+//                }
+                cluster[i].get(j).isClover = WsnFunction.IFclovered(maodian[i],Centroid.get(i),V,R,cluster[i].get(j));
                 System.out.println(cluster[i].get(j).location+"from cluster No."+ i +" if clovered?:"+ cluster[i].get(j).isClover);
             }
         }
 
+        //确定充电器部署点后再执行一次多跳选择算法以更新充电效率和节点覆盖率
 
 
             double Sum = 0;
             for (int i=0;cluster[i]!=null;i++){
 
                 if (cluster[i].size() < 2){
-                    cluster[i].get(0).erRateEFF=1;
-                    cluster[i].get(0).multihop=-2;
-                    cluster[i].get(0).isClover = true;
+//                    for (Sensor S : cluster[i]){
+//                        System.out.print(S.erRateEFF + "+");
+//                    }
+//                    System.out.println(" ");
                     continue;
                 }
                 for (Sensor S : cluster[i]){
@@ -269,12 +286,52 @@ public class run {
                     }
                 }
 
-                for (Sensor S : cluster[i]){
-                    System.out.print(S.erRateEFF + "+");
-                }
-                System.out.println(" ");
+//                for (Sensor S : cluster[i]){
+//                    System.out.print(S.erRateEFF + "+");
+//                }
+//                System.out.println(" ");
             }
+//            for (int i=0;cluster[i]!=null;i++){
+//                for (Sensor S : cluster[i]){
+//                    Sum += S.erRateEFF;
+//                }
+//            }
+//        System.out.println("总充电效用："+Sum/nodenum);
 
+            //处理孤立节点
+            for (int i=0;cluster[i]!=null;i++) {
+                if (cluster[i].size() > 1){
+                    continue;
+                }else {
+                    double max_2 = 0;
+                    int flag_1 = -1;
+                    for (int j=0;cluster[j].size()>1;j++){
+                        for (Sensor S : cluster[j]){
+                            if (max_2 < 100 / Math.pow(40 + Point.getDistance(S.location, cluster[i].get(0).location), 2)) {
+                                max_2 = 100 / Math.pow(40 + Point.getDistance(S.location, cluster[i].get(0).location), 2);
+                                flag_1 = S.number;
+                            }
+                        }
+                    }
+                    cluster[i].get(0).erRateEFF = (float) max_2;
+                    cluster[i].get(0).multihop = flag_1;
+                }
+
+            }
+        System.out.println("***********************");
+        System.out.println("各节点的充电效率");
+        for (int i=0;cluster[i]!=null;i++) {
+            for (Sensor S : cluster[i]){
+                        System.out.print(S.erRateEFF + "+");
+                    }
+                    System.out.println(" ");
+            }
+            for (int i=0;cluster[i]!=null;i++){
+                for (Sensor S : cluster[i]){
+                    Sum += S.erRateEFF;
+                }
+            }
+            System.out.println("总充电效用："+Sum/nodenum);
         }
 
 //        System.out.println("总充电效用");
