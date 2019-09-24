@@ -16,7 +16,7 @@ public class run {
         //多跳阈值
         float THR_erRateEFF = 0.1f;
 
-        float D =15;//聚类圆半径(R=20时，D取值为5.8~11.7)
+        float D =11.7f;//聚类圆半径(R=20时，D取值为5.8~11.7)
         double V = Math.PI/2 ; //充电器角度
         double R = 20;//充电器半径
         float Cp = 0.05f;

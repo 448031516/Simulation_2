@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="">
+    <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="优化了输出，最终版1，charge效率还需改进">
+      <change afterPath="$PROJECT_DIR$/WsnFunction2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WsnFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/WsnFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.vscode/tasks.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/run.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/GeneticAlgorithm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/GeneticP5Visaul.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/GeneticTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/MCV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/Point.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/Sensor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/WsnFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/honeycomb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/source/run.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/run.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -190,7 +202,21 @@
       <option name="project" value="LOCAL" />
       <updated>1567762335215</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="优化多tiao">
+      <created>1568633441943</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1568633441943</updated>
+    </task>
+    <task id="LOCAL-00014" summary="优化了输出，最终版1，charge效率还需改进">
+      <created>1568798011552</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1568798011552</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,18 +239,10 @@
     <MESSAGE value="第一阶段完成" />
     <MESSAGE value="end" />
     <MESSAGE value="优化多tiao" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化多tiao" />
+    <MESSAGE value="优化了输出，最终版1，charge效率还需改进" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化了输出，最终版1，charge效率还需改进" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/run.java</url>
-          <line>274</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="cluster" />
@@ -232,8 +250,8 @@
         <watch expression="cluster[0].get(1)" />
         <watch expression="cluster[0].get(1)" language="JAVA" />
         <watch expression="maodian_serial[0]" />
-        <watch expression="maodian_serial[0]" language="JAVA" />
         <watch expression="maodian" />
+        <watch expression="maodian_serial[0]" language="JAVA" />
         <watch expression="cluster_point" />
       </configuration>
     </watches-manager>
