@@ -4,15 +4,15 @@ public class WsnFunction2 {
 
 
     public static LinkedList<Sensor> findSensors(double V,double R,Sensor[] allSensor,float networkSize){
-        Point[] p = new Point[200*200];
+        Point[] p = new Point[20*20];
         int k = 0 ;
-        for (double i=0;i < networkSize;i+=networkSize/200 ){
-            for (double j=0;j < networkSize;j+=networkSize/200 ){
+        for (double i=0;i < networkSize;i+=networkSize/20 ){
+            for (double j=0;j < networkSize;j+=networkSize/20 ){
                 p[k] = new Point(i,j);
                 k++;
             }
         }
-        int[]temp_1 = new int[41000*360];
+        int[]temp_1 = new int[4100*360];
         int temp_2 = 0;
         int max = 0;
         int flag_Charger = 0;
@@ -35,6 +35,7 @@ public class WsnFunction2 {
         LinkedList<Sensor> clovered = new LinkedList<>();
         for (int j=0;j < allSensor.length;j++){
             if (IFclovered(p[flag_Charger],allSensor[j],flag_Charger_angle,V,R)) {
+                allSensor[j].charger = new direct_Charger(flag_Charger_angle,p[flag_Charger]);
                 clovered.add(allSensor[j]);
             }
         }

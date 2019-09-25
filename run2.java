@@ -20,6 +20,7 @@ public class run2 {
         double V = Math.PI/2 ; //充电器角度
         double R = 20;//充电器半径
         float Cp = 0.05f;
+        int n = 22;//充电器部署个数
 
         Sensor[][] allSensor = new Sensor[1000][];
         int allSensor_level = 0;
@@ -33,8 +34,31 @@ public class run2 {
             ++allSensor_level;
             allSensor[allSensor_level] = new Sensor[allSensor[allSensor_level-1].length - cluster[cluster_NUM].size()];
             allSensor[allSensor_level] = WsnFunction2.update_allSensors(cluster[cluster_NUM],allSensor[allSensor_level-1]);
+            for (Sensor s : cluster[cluster_NUM]) {
+                s.cluster = cluster_NUM;
+//                System.out.println(s.location + "from charger No." + cluster_NUM + "位置：" + s.charger.location +"角度"+ s.charger.V);
+            }
             ++cluster_NUM;
+
         }
+        double Sum = 0;
+        for (int i=0;cluster[i]!=null;i++) {
+            for (Sensor S : cluster[i]) {
+                S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, S.charger.location), 2));
+                S.erRateEFF = Math.min(S.erRate * (1 / Cp), 1);
+//                Sum += S.erRateEFF;
+            }
+        }
+        for (int i=0;i < n;i++) {
+            for (Sensor S : cluster[i]) {
+                Sum += S.erRateEFF;
+            }
+        }
+
+        System.out.println("总充电效用：" + Sum / nodenum);
+
+
+
     }
 
 }

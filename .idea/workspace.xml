@@ -2,23 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="优化了输出，最终版1，charge效率还需改进">
+      <change afterPath="$PROJECT_DIR$/direct_Charger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WsnFunction2.java" beforeDir="false" afterPath="$PROJECT_DIR$/WsnFunction2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/MCV.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/MCV.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/GeneticAlgorithm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/GeneticP5Visaul.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/GeneticTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/MCV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/Sensor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/WsnFunction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/honeycomb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/run.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/run.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run2.java" beforeDir="false" afterPath="$PROJECT_DIR$/run2.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,7 +64,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -76,7 +78,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.run2">
+  <component name="RunManager" selected="Application.run">
     <configuration name="GeneticP5Visaul" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GeneticP5Visaul" />
       <module name="Simulation_2" />
@@ -107,8 +109,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.run2" />
         <item itemvalue="Application.run" />
+        <item itemvalue="Application.run2" />
         <item itemvalue="Application.Simulation_2" />
         <item itemvalue="Application.GeneticP5Visaul" />
       </list>
@@ -261,14 +263,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/run2.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/run2.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/WsnFunction2.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
