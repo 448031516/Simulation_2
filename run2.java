@@ -1,4 +1,4 @@
-
+import java.util.LinkedList;
 
 public class run2 {
 
@@ -22,11 +22,19 @@ public class run2 {
         float Cp = 0.05f;
 
         Sensor[][] allSensor = new Sensor[1000][];
-
-
+        int allSensor_level = 0;
+        final LinkedList<Sensor>[] cluster = new LinkedList[1000];
+        int cluster_NUM = 0  ;
 
         allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
 
+        while (allSensor[allSensor_level].length!=0){
+            cluster[cluster_NUM] = WsnFunction2.findSensors(V,R, allSensor[allSensor_level],networkSize);
+            ++allSensor_level;
+            allSensor[allSensor_level] = new Sensor[allSensor[allSensor_level-1].length - cluster[cluster_NUM].size()];
+            allSensor[allSensor_level] = WsnFunction2.update_allSensors(cluster[cluster_NUM],allSensor[allSensor_level-1]);
+            ++cluster_NUM;
+        }
     }
 
 }

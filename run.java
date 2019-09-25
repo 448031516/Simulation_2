@@ -52,9 +52,9 @@ public class run {
             ++allSensor_level;
             allSensor[allSensor_level] = new Sensor[allSensor[allSensor_level-1].length - cluster[cluster_NUM].size()];
             allSensor[allSensor_level] = WsnFunction.update_allSensors(cluster[cluster_NUM],allSensor[allSensor_level-1]);
-            for (int i = 0; i < cluster[cluster_NUM].size(); i++) {
-                lists.remove(cluster[cluster_NUM].get(i).location);
-            }
+//            for (int i = 0; i < cluster[cluster_NUM].size(); i++) {
+//                lists.remove(cluster[cluster_NUM].get(i).location);
+//            }
             //输出各个簇所包含的节点
             if (cluster[cluster_NUM].size()>1) {
                 for (Sensor s : cluster[cluster_NUM]) {

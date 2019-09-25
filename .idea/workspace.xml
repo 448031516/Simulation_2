@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="优化了输出，最终版1，charge效率还需改进">
-      <change afterPath="$PROJECT_DIR$/WsnFunction2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WsnFunction2.java" beforeDir="false" afterPath="$PROJECT_DIR$/WsnFunction2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.vscode/tasks.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" afterDir="false" />
@@ -21,6 +19,7 @@
       <change beforePath="$PROJECT_DIR$/out/source/honeycomb.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/source/run.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run2.java" beforeDir="false" afterPath="$PROJECT_DIR$/run2.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +76,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.run">
+  <component name="RunManager" selected="Application.run2">
     <configuration name="GeneticP5Visaul" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GeneticP5Visaul" />
       <module name="Simulation_2" />
@@ -99,8 +98,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="run2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="run2" />
+      <module name="Simulation_2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.run2" />
         <item itemvalue="Application.run" />
         <item itemvalue="Application.Simulation_2" />
         <item itemvalue="Application.GeneticP5Visaul" />
@@ -216,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568798011552</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="新增对比实验">
+      <created>1569312214612</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1569312214612</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,9 +254,24 @@
     <MESSAGE value="end" />
     <MESSAGE value="优化多tiao" />
     <MESSAGE value="优化了输出，最终版1，charge效率还需改进" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化了输出，最终版1，charge效率还需改进" />
+    <MESSAGE value="新增对比实验" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增对比实验" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/run2.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/run2.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="cluster" />
