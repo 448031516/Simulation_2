@@ -17,12 +17,13 @@ public class run {
         float THR_erRateEFF = 0.1f;
 
         float D =11.7f;//聚类圆半径(R=20时，D取值为5.8~11.7)
-        double V = Math.PI/2 ; //充电器角度
+        double V = Math.PI/15 ; //充电器角度
         double R = 20;//充电器半径
         float Cp = 0.05f;
 
         circle[] cluster_circle = new circle[100];		//簇圆
         Point[] maodian = new Point[100]; //充电器摆放位置
+        double[] maodian_V = new double[100]; //充电器摆放角度
         LinkedList<Point>[] maodian_serial = new LinkedList[100];
         int cluster_circle_NUM;
         LinkedList<Point> lists;
@@ -110,14 +111,16 @@ public class run {
                 double k = Math.atan2((Centroid.get(i).y-a.y),(Centroid.get(i).x-a.x));
                 b.x = (float)(a.x - D*Math.cos(k));
                 b.y = (float)(a.y - D*Math.sin(k));
-                maodian_serial[i] = WsnFunction.divided_line(a,b,100);
+                Point c = new Point((float)(a.x + D*Math.cos(k)),(float)(a.y + D*Math.sin(k)));
+                maodian_serial[i] = WsnFunction.divided_line(c,b,200);
             }else if (cluster[i].size()==2){
                 Point a = new Point((cluster[i].get(0).location.x+cluster[i].get(1).location.x)/2,(cluster[i].get(0).location.y+cluster[i].get(1).location.y)/2);
                 double k = Math.PI/2 + Math.atan2((cluster[i].get(1).location.y-cluster[i].get(0).location.y),(cluster[i].get(1).location.x-cluster[i].get(0).location.x));
                 Point b = new Point();
                 b.x = (float)(a.x - D*Math.cos(k));
                 b.y = (float)(a.y - D*Math.sin(k));
-                maodian_serial[i] = WsnFunction.divided_line(a,b,100);
+                Point c = new Point((float)(a.x + D*Math.cos(k)),(float)(a.y + D*Math.sin(k)));
+                maodian_serial[i] = WsnFunction.divided_line(c,b,200);
             }else {
                 maodian[i] = cluster[i].get(0).location;
             }
@@ -174,65 +177,71 @@ public class run {
             double EFF = 0,max = 0;
             //确定充电器摆放位置
              for (int maodian_ = 0;maodian_< maodian_serial[i].size();maodian_++) {
-                 for (int j = 0; j < cluster[i].size(); j++) {
-                     cluster[i].get(j).isClover = WsnFunction.IFclovered(maodian_serial[i].get(maodian_), Centroid.get(i), V, R, cluster[i].get(j));
-                 }
-                 for (Sensor S : cluster[i]) {
-                     if (S.isClover) {
-                         S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian_serial[i].get(maodian_)), 2));
-                         S.erRateEFF = Math.min(S.erRate * (1 / Cp), 1);
-                         S.multihop = -2;
+                 for (double Charger_angle = 0;Charger_angle <2*Math.PI;Charger_angle+=Math.PI/360) {
+                     for (int j = 0; j < cluster[i].size(); j++) {
+                         cluster[i].get(j).isClover = WsnFunction2.IFclovered(maodian_serial[i].get(maodian_),cluster[i].get(j), Charger_angle, V, R);
                      }
-                 }
-                 int Clover_num=0;
-                 for (Sensor S : cluster[i]) {
-                     if (S.isClover) Clover_num++;
-                 }
-                 if (Clover_num > 0 ){
-                     while (WsnFunction.IF_noPATH(cluster[i])) {
-                         cluster[i] = WsnFunction.multihop_PATH(cluster[i] , Cp);
-                         //从得到的所有未被覆盖节点中选取erRateEFF最大的节点及其路径（下一跳）
-                         double maxERrate = 0;
-                         int sensor_maxERrate = -1;
-                         for (int f1 = 0; f1 < cluster[i].size(); f1++) {
-                             if (!cluster[i].get(f1).isClover && cluster[i].get(f1).erRateEFF > maxERrate) {
-                                 maxERrate = cluster[i].get(f1).erRateEFF;
-                                 sensor_maxERrate = f1;
+                     for (Sensor S : cluster[i]) {
+                         if (S.isClover) {
+                             S.erRate = (float) (100 / Math.pow(40 + Point.getDistance(S.location, maodian_serial[i].get(maodian_)), 2));
+                             S.erRateEFF = Math.min(S.erRate * (1 / Cp), 1);
+                             S.multihop = -2;
+                         }
+                     }
+                     int Clover_num = 0;
+                     for (Sensor S : cluster[i]) {
+                         if (S.isClover) Clover_num++;
+                     }
+                     if (Clover_num > 0) {
+                         while (WsnFunction.IF_noPATH(cluster[i])) {
+                             cluster[i] = WsnFunction.multihop_PATH(cluster[i], Cp);
+                             //从得到的所有未被覆盖节点中选取erRateEFF最大的节点及其路径（下一跳）
+                             double maxERrate = 0;
+                             int sensor_maxERrate = -1;
+                             for (int f1 = 0; f1 < cluster[i].size(); f1++) {
+                                 if (!cluster[i].get(f1).isClover && cluster[i].get(f1).erRateEFF > maxERrate) {
+                                     maxERrate = cluster[i].get(f1).erRateEFF;
+                                     sensor_maxERrate = f1;
+                                 }
+                             }
+                             if (sensor_maxERrate >= 0) {
+                                 cluster[i].get(sensor_maxERrate).isClover = true;//将最大erRateEFF的节点加入到已覆盖的集合中
                              }
                          }
-                         if (sensor_maxERrate >= 0) {
-                             cluster[i].get(sensor_maxERrate).isClover = true;//将最大erRateEFF的节点加入到已覆盖的集合中
+                     } else {
+                         for (Sensor S : cluster[i]) {
+                             S.erRateEFF = 0;
+                             S.erRate = 0;
+                             S.isClover = false;
+                             S.multihop = -1;
                          }
+                         continue;
                      }
-                 }else {
+                     ;
+                     double SumEREFF = 0;
                      for (Sensor S : cluster[i]) {
-                         S.erRateEFF = 0;S.erRate = 0;
+                         //                     System.out.print(S.erRate + "+");
+                         //                     System.out.println("");
+                         SumEREFF += S.erRateEFF;
+                     }
+                     if (SumEREFF > max) {
+                         max = SumEREFF;
+                         maodian[i] = maodian_serial[i].get(maodian_);          //最终确定充电器的位置和方向
+                         maodian_V[i] = Charger_angle ;
+                     }
+                     for (Sensor S : cluster[i]) {
+                         S.erRateEFF = 0;
+                         S.erRate = 0;
                          S.isClover = false;
                          S.multihop = -1;
                      }
-                     continue;
-                 };
-                 double SumEREFF = 0;
-                 for (Sensor S : cluster[i]) {
-//                     System.out.print(S.erRate + "+");
-//                     System.out.println("");
-                     SumEREFF += S.erRateEFF;
-                 }
-                 if (SumEREFF > max ){
-                     max = SumEREFF;
-                     maodian[i] = maodian_serial[i].get(maodian_);          //最终确定锚点
-                 }
-                 for (Sensor S : cluster[i]) {
-                     S.erRateEFF = 0;S.erRate = 0;
-                     S.isClover = false;
-                     S.multihop = -1;
                  }
              }
         }
         System.out.println("***********************");
-        System.out.println("充电器位置");
+        System.out.println("充电器位置和角度");
         for (int i=0;cluster[i]!=null;i++){
-            System.out.println(maodian[i]);
+            System.out.println(maodian[i] + ", "+ maodian_V);
         }
         System.out.println("***********************");
         System.out.println("充电器直接覆盖情况");
@@ -245,7 +254,7 @@ public class run {
 //                    System.out.println(cluster[i].get(j).location+"from cluster No."+ i +" if clovered?:"+ cluster[i].get(j).isClover);
 //                    continue;
 //                }
-                cluster[i].get(j).isClover = WsnFunction.IFclovered(maodian[i],Centroid.get(i),V,R,cluster[i].get(j));
+                cluster[i].get(j).isClover = WsnFunction2.IFclovered(maodian[i],cluster[i].get(j), maodian_V[i], V, R);
                 System.out.println(cluster[i].get(j).location+"from cluster No."+ i +" if clovered?:"+ cluster[i].get(j).isClover);
             }
         }
