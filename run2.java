@@ -49,7 +49,7 @@ public class run2 {
 //                Sum += S.erRateEFF;
             }
         }
-        for (int i=0;i < n;i++) {
+        for (int i=0;i < Math.min(n,cluster_NUM);i++) {
             for (Sensor S : cluster[i]) {
                 Sum += S.erRateEFF;
             }

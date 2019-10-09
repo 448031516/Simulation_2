@@ -6,7 +6,7 @@ public class run {
         //网络规模
         float networkSize = 150;
         //传感器节点个数
-        int nodenum = 100;
+        int nodenum = 30;
         //系统当前时间初始为0s
         int systemTime = 0;
         //能量消耗率最小值
@@ -17,7 +17,7 @@ public class run {
         float THR_erRateEFF = 0.1f;
 
         float D =11.7f;//聚类圆半径(R=20时，D取值为5.8~11.7)
-        double V = Math.PI/15 ; //充电器角度
+        double V = Math.PI/2; //充电器角度
         double R = 20;//充电器半径
         float Cp = 0.05f;
 
