@@ -1,12 +1,16 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.LinkedList;
 
 public class run {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //网络规模
         float networkSize = 150;
         //传感器节点个数
-        int nodenum = 30;
+        int nodenum = 100;
         //系统当前时间初始为0s
         int systemTime = 0;
         //能量消耗率最小值
@@ -44,6 +48,15 @@ public class run {
         cluster_point[cluster_Point_NUM] = new LinkedList<Point>();
         allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
         cluster_edge[0] = new LinkedList<Point>();
+//        PrintStream out = new PrintStream("out.txt");
+//
+//        // 设置系统的打印流流向,输出到ps.txt
+//        System.setOut(out);
+//        // 调用系统的打印流,ps.txt中输出97
+//        for (int i=0;i < allSensor[0].length;i++){
+//            System.out.println(allSensor[0][i].location.x+","+allSensor[0][i].location.y);
+//        }
+
 
 //**************************分簇********************************
         System.out.println("***********************");
@@ -238,10 +251,11 @@ public class run {
                  }
              }
         }
+
         System.out.println("***********************");
         System.out.println("充电器位置和角度");
         for (int i=0;cluster[i]!=null;i++){
-            System.out.println(maodian[i] + ", "+ maodian_V);
+            System.out.println(maodian[i] + ", "+ Math.toDegrees(maodian_V[i]));
         }
         System.out.println("***********************");
         System.out.println("充电器直接覆盖情况");
