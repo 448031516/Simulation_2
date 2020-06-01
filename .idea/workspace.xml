@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="对比实验ing">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="节点分簇">
+      <change afterPath="$PROJECT_DIR$/grid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulation_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/MCV.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/MCV.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/GeneticAlgorithm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/GeneticP5Visaul.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/GeneticTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/MCV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/Sensor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/WsnFunction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/honeycomb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/source/run.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/run.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,9 +43,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Simulation_2" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,27 +67,19 @@
     </option>
   </component>
   <component name="ProjectId" id="1OShjqL8JdNk341c3nCtY19Z35x" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="C:/processing-3.5.3/core/library/core.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../processing-3.5.3/core/library/core.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.run">
+  <component name="RunManager" selected="Application.run3">
     <configuration name="GeneticP5Visaul" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GeneticP5Visaul" />
       <module name="Simulation_2" />
@@ -113,8 +108,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="run3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="run3" />
+      <module name="Simulation_2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.run3" />
         <item itemvalue="Application.run" />
         <item itemvalue="Application.run2" />
         <item itemvalue="Application.Simulation_2" />
@@ -246,13 +249,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial construction simulation" />
@@ -264,6 +266,36 @@
     <MESSAGE value="优化了输出，最终版1，charge效率还需改进" />
     <MESSAGE value="新增对比实验" />
     <option name="LAST_COMMIT_MESSAGE" value="新增对比实验" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="824" y="529" key="#com.intellij.ide.util.MemberChooser" timestamp="1591008955434">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="824" y="529" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591008955434" />
+    <state width="1730" height="232" key="GridCell.Tab.0.bottom" timestamp="1590991740299">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1730" height="232" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1590991740299" />
+    <state width="1730" height="232" key="GridCell.Tab.0.center" timestamp="1590991740299">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1730" height="232" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1590991740299" />
+    <state width="1730" height="232" key="GridCell.Tab.0.left" timestamp="1590991740299">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1730" height="232" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1590991740299" />
+    <state width="1730" height="232" key="GridCell.Tab.0.right" timestamp="1590991740299">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1730" height="232" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1590991740299" />
+    <state x="54" y="35" key="MergeDialog" timestamp="1590823869871">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="54" y="35" key="MergeDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1590823869871" />
+    <state x="841" y="325" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590823863017">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="841" y="325" key="git4idea.branch.GitSmartOperationDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1590823863017" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
