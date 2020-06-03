@@ -48,7 +48,7 @@ public class run {
         cluster_point[cluster_Point_NUM] = new LinkedList<Point>();
         allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
         cluster_edge[0] = new LinkedList<Point>();
-/*        PrintStream out = new PrintStream("out.txt");
+/*        PrintStream out = new PrintStream("out1.txt");
 //
         // 设置系统的打印流流向,输出到ps.txt
         System.setOut(out);

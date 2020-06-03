@@ -16,21 +16,17 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="第二篇小论文 仿真初始构建">
-      <change afterPath="$PROJECT_DIR$/KMeans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Point2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
+    <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="使用kmeans划分子区域">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/run.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/run.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run3.java" beforeDir="false" afterPath="$PROJECT_DIR$/run3.java" afterDir="false" />
     </list>
@@ -246,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591018450916</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="使用kmeans划分子区域">
+      <created>1591182999657</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1591182999658</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,29 +274,30 @@
     <MESSAGE value="优化了输出，最终版1，charge效率还需改进" />
     <MESSAGE value="新增对比实验" />
     <MESSAGE value="第二篇小论文 仿真初始构建" />
-    <option name="LAST_COMMIT_MESSAGE" value="第二篇小论文 仿真初始构建" />
+    <MESSAGE value="使用kmeans划分子区域" />
+    <option name="LAST_COMMIT_MESSAGE" value="使用kmeans划分子区域" />
   </component>
   <component name="WindowStateProjectService">
     <state x="824" y="529" key="#com.intellij.ide.util.MemberChooser" timestamp="1591083567728">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="824" y="529" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591083567728" />
-    <state width="2517" height="286" key="GridCell.Tab.0.bottom" timestamp="1591182904276">
+    <state width="1695" height="343" key="GridCell.Tab.0.bottom" timestamp="1591194418001">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591182904276" />
-    <state width="2517" height="286" key="GridCell.Tab.0.center" timestamp="1591182904276">
+    <state width="1695" height="343" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591194418001" />
+    <state width="1695" height="343" key="GridCell.Tab.0.center" timestamp="1591194418001">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591182904276" />
-    <state width="2517" height="286" key="GridCell.Tab.0.left" timestamp="1591182904276">
+    <state width="1695" height="343" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591194418001" />
+    <state width="1695" height="343" key="GridCell.Tab.0.left" timestamp="1591194418001">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591182904276" />
-    <state width="2517" height="286" key="GridCell.Tab.0.right" timestamp="1591182904276">
+    <state width="1695" height="343" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591194418001" />
+    <state width="1695" height="343" key="GridCell.Tab.0.right" timestamp="1591194418001">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591182904276" />
+    <state width="1695" height="343" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591194418001" />
     <state width="1401" height="347" key="GridCell.Tab.1.bottom" timestamp="1591107131911">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -318,10 +322,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="498" y="301" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591178967240" />
-    <state x="779" y="426" key="Vcs.Push.Dialog.v2" timestamp="1591018461002">
+    <state x="779" y="426" key="Vcs.Push.Dialog.v2" timestamp="1591183016377">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="779" y="426" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1591018461002" />
+    <state x="779" y="426" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1591183016377" />
     <state x="841" y="325" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590823863017">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
