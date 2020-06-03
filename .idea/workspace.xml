@@ -19,22 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="节点分簇">
-      <change afterPath="$PROJECT_DIR$/grid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run3.java" afterDir="false" />
+    <list default="true" id="4be46d6e-4b15-4afc-821e-dc536ef5894e" name="Default Changelist" comment="第二篇小论文 仿真初始构建">
+      <change afterPath="$PROJECT_DIR$/KMeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Point2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulation_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/grid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/MCV.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/MCV.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Point.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Sensor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm$GeneticAlgorithmHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/GeneticAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/Simulation_2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/WsnFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/honeycomb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Simulation_2/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Simulation_2/run.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run3.java" beforeDir="false" afterPath="$PROJECT_DIR$/run3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +52,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="test_2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,7 +72,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../processing-3.5.3/core/library/core.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -241,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569312214612</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="第二篇小论文 仿真初始构建">
+      <created>1591018450916</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1591018450916</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,50 +270,61 @@
     <MESSAGE value="优化多tiao" />
     <MESSAGE value="优化了输出，最终版1，charge效率还需改进" />
     <MESSAGE value="新增对比实验" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增对比实验" />
+    <MESSAGE value="第二篇小论文 仿真初始构建" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二篇小论文 仿真初始构建" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="824" y="529" key="#com.intellij.ide.util.MemberChooser" timestamp="1591008955434">
+    <state x="824" y="529" key="#com.intellij.ide.util.MemberChooser" timestamp="1591083567728">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="824" y="529" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591008955434" />
-    <state width="1730" height="232" key="GridCell.Tab.0.bottom" timestamp="1590991740299">
+    <state x="824" y="529" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591083567728" />
+    <state width="2517" height="286" key="GridCell.Tab.0.bottom" timestamp="1591182904276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1730" height="232" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1590991740299" />
-    <state width="1730" height="232" key="GridCell.Tab.0.center" timestamp="1590991740299">
+    <state width="2517" height="286" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591182904276" />
+    <state width="2517" height="286" key="GridCell.Tab.0.center" timestamp="1591182904276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1730" height="232" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1590991740299" />
-    <state width="1730" height="232" key="GridCell.Tab.0.left" timestamp="1590991740299">
+    <state width="2517" height="286" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591182904276" />
+    <state width="2517" height="286" key="GridCell.Tab.0.left" timestamp="1591182904276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1730" height="232" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1590991740299" />
-    <state width="1730" height="232" key="GridCell.Tab.0.right" timestamp="1590991740299">
+    <state width="2517" height="286" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591182904276" />
+    <state width="2517" height="286" key="GridCell.Tab.0.right" timestamp="1591182904276">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1730" height="232" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1590991740299" />
+    <state width="2517" height="286" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591182904276" />
+    <state width="1401" height="347" key="GridCell.Tab.1.bottom" timestamp="1591107131911">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1401" height="347" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591107131911" />
+    <state width="1401" height="347" key="GridCell.Tab.1.center" timestamp="1591107131911">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1401" height="347" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591107131911" />
+    <state width="1401" height="347" key="GridCell.Tab.1.left" timestamp="1591107131911">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1401" height="347" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591107131911" />
+    <state width="1401" height="347" key="GridCell.Tab.1.right" timestamp="1591107131911">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1401" height="347" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591107131911" />
     <state x="54" y="35" key="MergeDialog" timestamp="1590823869871">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="54" y="35" key="MergeDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1590823869871" />
+    <state x="498" y="301" key="SettingsEditor" timestamp="1591178967240">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="498" y="301" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591178967240" />
+    <state x="779" y="426" key="Vcs.Push.Dialog.v2" timestamp="1591018461002">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="779" y="426" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1591018461002" />
     <state x="841" y="325" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590823863017">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="841" y="325" key="git4idea.branch.GitSmartOperationDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1590823863017" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="cluster" />
-        <watch expression="cluster" />
-        <watch expression="cluster[0].get(1)" />
-        <watch expression="cluster[0].get(1)" language="JAVA" />
-        <watch expression="maodian_serial[0]" />
-        <watch expression="maodian" />
-        <watch expression="maodian_serial[0]" language="JAVA" />
-        <watch expression="cluster_point" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

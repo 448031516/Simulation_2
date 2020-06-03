@@ -48,14 +48,15 @@ public class run {
         cluster_point[cluster_Point_NUM] = new LinkedList<Point>();
         allSensor[0] = WsnFunction.initSensors(networkSize, nodenum, minECR, maxECR);
         cluster_edge[0] = new LinkedList<Point>();
-//        PrintStream out = new PrintStream("out.txt");
+/*        PrintStream out = new PrintStream("out.txt");
 //
-//        // 设置系统的打印流流向,输出到ps.txt
-//        System.setOut(out);
-//        // 调用系统的打印流,ps.txt中输出97
-//        for (int i=0;i < allSensor[0].length;i++){
-//            System.out.println(allSensor[0][i].location.x+","+allSensor[0][i].location.y);
-//        }
+        // 设置系统的打印流流向,输出到ps.txt
+        System.setOut(out);
+        // 调用系统的打印流,ps.txt中输出97
+ */
+        for (int i=0;i < allSensor[0].length;i++){
+            System.out.println(allSensor[0][i].location.x+" "+allSensor[0][i].location.y);
+        }
 
 
 //**************************分簇********************************
