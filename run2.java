@@ -20,7 +20,7 @@ public class run2 {
         double V = Math.PI/2 ; //充电器角度
         double R = 20;//充电器半径
         float Cp = 0.05f;
-        int n = 22;//充电器部署个数
+        int n = 25;//充电器部署个数
 
         Sensor[][] allSensor = new Sensor[1000][];
         int allSensor_level = 0;
